@@ -1,5 +1,5 @@
 ﻿public static class ButDinoConstants
 {
 	public const string NAME  = "But Dino";
-	public const string NAME_ = NAME + "_";
+	public const string NAME_ = NAME + "/";
 }
