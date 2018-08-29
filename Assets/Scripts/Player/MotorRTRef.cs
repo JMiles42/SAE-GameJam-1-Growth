@@ -1,4 +1,5 @@
 ﻿using ForestOfChaosLib.AdvVar.RuntimeRef;
 using UnityEngine;
 
-[CreateAssetMenu] public class MotorRTRef: RunTimeRef<Motor> { }
+[CreateAssetMenu(menuName = ButDinoConstants.NAME_ + "RT/Motor RT Ref")]
+public class MotorRTRef: RunTimeRef<Motor> { }

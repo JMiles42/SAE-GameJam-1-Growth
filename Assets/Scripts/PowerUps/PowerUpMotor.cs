@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using ForestOfChaosLib;
-using UnityEngine;
-
-public class PowerUpMotor: WorldObject
+﻿public class PowerUpMotor: WorldObject
 {
+	public PowerUpBase PowerUp;
+
 	private void OnEnable()
 	{
 		OnPlayerInteraction += PlayerInteraction;
@@ -17,6 +14,6 @@ public class PowerUpMotor: WorldObject
 
 	private void PlayerInteraction(Motor motor)
 	{
-		
+		motor.AddPowerUp(PowerUp);
 	}
 }

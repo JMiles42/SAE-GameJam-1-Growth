@@ -7,7 +7,8 @@ using UnityEngine;
 
 public class Motor: FoCsRigidbodyBehaviour
 {
-	[GetSetter("Brain")] [SerializeField] private MotorBrain brain;
+	[GetSetter("Brain")] [SerializeField] private MotorBrain        brain;
+	public                                        List<PowerUpBase> PowerUps = new List<PowerUpBase>();
 
 	public MotorBrain Brain
 	{
@@ -24,8 +25,6 @@ public class Motor: FoCsRigidbodyBehaviour
 		}
 	}
 
-	public List<PowerUpBase> PowerUps = new List<PowerUpBase>();
-
 	private void OnEnable()
 	{
 		Brain?.EnableBrain(this);
@@ -36,21 +35,29 @@ public class Motor: FoCsRigidbodyBehaviour
 		Brain?.DisableBrain(this);
 	}
 
+	public void AddPowerUp(PowerUpBase powerUp)
+	{
+		PowerUps.Add(powerUp);
+		powerUp.PowerUpEnable(this);
+	}
+
 #region Movement
 #region Rotation
-
 	public void SetRotation(Quaternion rot)
 	{
 		UpdateRotation(rot, RotationMode.Set);
 	}
+
 	public void SetRotation(Vector3 rot)
 	{
 		SetRotation(rot.GetQuaternion());
 	}
+
 	public void MultiplyRotation(Quaternion rot)
 	{
 		UpdateRotation(rot, RotationMode.Multiply);
 	}
+
 	public void MultiplyRotation(Vector3 rot)
 	{
 		MultiplyRotation(rot.GetQuaternion());

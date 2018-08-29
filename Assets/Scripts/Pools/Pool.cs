@@ -5,79 +5,77 @@ using ForestOfChaosLib.Extensions;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-	public abstract class Pool: ScriptableObject
-	{
-		[SerializeField] [DisableEditing]        private int       currentIndex;
-		[SerializeField] [DisableEditing]        private int       currentLength;
-		[SerializeField]                         private bool      expandable;
-		[SerializeField]                         private bool      forceReuse = true;
-		[GetSetter("MaxCount")] [SerializeField] private int       maxCount   = 10;
-		private                                          Transform transform;
+public abstract class Pool: ScriptableObject
+{
+	[SerializeField] [DisableEditing]        private int       currentIndex;
+	[SerializeField] [DisableEditing]        private int       currentLength;
+	[SerializeField]                         private bool      expandable;
+	[SerializeField]                         private bool      forceReuse = true;
+	[GetSetter("MaxCount")] [SerializeField] private int       maxCount   = 10;
+	private                                          Transform transform;
 
-		public int MaxCount
+	public int MaxCount
+	{
+		get { return maxCount; }
+		set
 		{
-			get { return maxCount; }
-			set
-			{
 #if UNITY_EDITOR
-				if(Application.isPlaying)
-					ChangePoolSize(maxCount - value);
+			if(Application.isPlaying)
+				ChangePoolSize(maxCount - value);
 #else
 				ChangePoolSize(maxCount - value);
 				#endif
-				maxCount = currentLength = value;
-			}
+			maxCount = currentLength = value;
 		}
-
-		public bool Expandable
-		{
-			get { return expandable; }
-			set { expandable = value; }
-		}
-
-		public bool ForceReuse
-		{
-			get { return forceReuse; }
-			set { forceReuse = value; }
-		}
-
-		public int CurrentLength
-		{
-			get { return currentLength; }
-			protected set { currentLength = value; }
-		}
-
-		public int CurrentIndex
-		{
-			get { return currentIndex; }
-			protected set { currentIndex = value; }
-		}
-
-		public abstract object NextRaw    { get; }
-		public abstract object CurrentRaw { get; }
-
-		public Transform Transform => transform? transform : CreateParentTransform();
-		public abstract void ChangePoolSize(int newSize);
-
-		private Transform CreateParentTransform()
-		{
-			var go = new GameObject(GetType().Name);
-			go.ResetPosRotScale();
-			go.transform.SetParent(PoolManager.Instance.transform);
-
-			return transform = go.transform;
-		}
-
-		public abstract void InitPool();
 	}
+
+	public bool Expandable
+	{
+		get { return expandable; }
+		set { expandable = value; }
+	}
+
+	public bool ForceReuse
+	{
+		get { return forceReuse; }
+		set { forceReuse = value; }
+	}
+
+	public int CurrentLength
+	{
+		get { return currentLength; }
+		protected set { currentLength = value; }
+	}
+
+	public int CurrentIndex
+	{
+		get { return currentIndex; }
+		protected set { currentIndex = value; }
+	}
+
+	public abstract object    NextRaw    { get; }
+	public abstract object    CurrentRaw { get; }
+	public          Transform Transform  => transform? transform : CreateParentTransform();
+	public abstract void ChangePoolSize(int newSize);
+
+	private Transform CreateParentTransform()
+	{
+		var go = new GameObject(GetType().Name);
+		go.ResetPosRotScale();
+		go.transform.SetParent(PoolManager.Instance.transform);
+
+		return transform = go.transform;
+	}
+
+	public abstract void InitPool();
+}
 
 public abstract class Pool<T>: Pool where T: Object
 {
 	[SerializeField] [DisableEditing] private T         current;
 	public                                    Action<T> OnReposition;
 	public                                    T         PoolObject;
-
-	public T Next => GetNext();
+	public                                    T         Next => GetNext();
 
 	/// <inheritdoc />
 	public override object NextRaw => GetNext();

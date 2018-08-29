@@ -1,16 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
+using ForestOfChaosLib.AdvVar;
+using ForestOfChaosLib.Generics;
 
-public class ScoreManager : MonoBehaviour {
+public class ScoreManager: Singleton<ScoreManager>
+{
+	public IntVariable                 Score;
+	public static event Func<int, int> OnScoreInterupt;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	public static void AddScore(int number)
+	{
+		if(OnScoreInterupt != null)
+			number = OnScoreInterupt(number);
+
+		Instance.Score.Value = number;
 	}
 }

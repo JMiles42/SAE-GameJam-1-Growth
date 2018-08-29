@@ -2,31 +2,30 @@
 using ForestOfChaosLib.AdvVar;
 using ForestOfChaosLib.AdvVar.InputSystem;
 using ForestOfChaosLib.Attributes;
-using ForestOfChaosLib.Debugging;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = ButDinoConstants.NAME_ + "Brains/Player Brain")]
 public class PlayerBrain: MotorBrain
 {
 	private const                                                    float         SMALL_FLOAT = 0.01f;
-	public                                                           AdvInputAxis  Horizontal;
-	public                                                           AdvInputAxis  Vertical;
 	private                                                          Coroutine     Coroutine;
 	public                                                           FloatVariable CurrentMaxSpeed = 10;
 	public                                                           FloatVariable EdgeMaxSpeed    = 10;
-	public                                                           FloatVariable MaxSpeed        = 10;
-	public                                                           FloatVariable PitchMax        = 0;
-	public                                                           FloatVariable YawMax          = 0;
-	public                                                           FloatVariable RollMax         = 0;
-	public                                                           WorldSettings WorldSettings;
-	[Header("DEV VALUES")] [DisableEditing] [SerializeField] private Vector3       velocity;
+	public                                                           AdvInputAxis  Horizontal;
+	public                                                           FloatVariable MaxSpeed = 10;
+	[DisableEditing] [SerializeField] private                        float         pitch;
+	public                                                           FloatVariable PitchMax = 0;
+	[DisableEditing] [SerializeField] private                        float         roll;
+	public                                                           FloatVariable RollMax = 0;
 	[DisableEditing] [SerializeField]                        private Vector3       smoothMoveVec;
 	[DisableEditing] [SerializeField]                        private float         smoothPitchV;
-	[DisableEditing] [SerializeField]                        private float         smoothYawV;
 	[DisableEditing] [SerializeField]                        private float         smoothRollV;
-	[DisableEditing] [SerializeField]                        private float         pitch;
-	[DisableEditing] [SerializeField]                        private float         yaw;
-	[DisableEditing] [SerializeField]                        private float         roll;
+	[DisableEditing] [SerializeField]                        private float         smoothYawV;
+	[Header("DEV VALUES")] [DisableEditing] [SerializeField] private Vector3       velocity;
+	public                                                           AdvInputAxis  Vertical;
+	public                                                           WorldSettings WorldSettings;
+	[DisableEditing] [SerializeField] private                        float         yaw;
+	public                                                           FloatVariable YawMax = 0;
 
 	private void OnEnable()
 	{
@@ -57,6 +56,7 @@ public class PlayerBrain: MotorBrain
 				motor.Rigidbody.velocity        = Vector3.zero;
 				motor.Rigidbody.angularVelocity = Vector3.zero;
 			}
+
 			DoRotation(motor);
 			DoMove(motor);
 
@@ -96,7 +96,6 @@ public class PlayerBrain: MotorBrain
 		{
 			var dstFromCentre   = targetPos2D.magnitude;
 			var slowDownPercent = 1 - ((WorldSettings.BoundsRadius - dstFromCentre) / WorldSettings.SlowDownBufferRadius);
-
 			CurrentMaxSpeed.Value = Mathf.Lerp(CurrentMaxSpeed, EdgeMaxSpeed, slowDownPercent);
 		}
 		else

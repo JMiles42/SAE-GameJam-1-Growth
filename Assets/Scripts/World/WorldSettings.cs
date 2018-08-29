@@ -5,13 +5,13 @@ using ForestOfChaosLib.Utilities;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = ButDinoConstants.NAME_ + "World Settings")]
 public class WorldSettings: ScriptableObject
 {
-	[GetSetter("GameRadius")] [SerializeField]             private float gameRadius             = 70;
-	[GetSetter("ConstraintCircleBuffer")] [SerializeField] private float constraintCircleBuffer = 1;
-	[GetSetter("SlowDownBufferRadius")] [SerializeField]   private float slowDownBufferRadius   = 10;
 	[DisableEditing] [SerializeField]                      private float boundsRadius;
+	[GetSetter("ConstraintCircleBuffer")] [SerializeField] private float constraintCircleBuffer = 1;
+	[GetSetter("GameRadius")] [SerializeField]             private float gameRadius             = 70;
+	[GetSetter("SlowDownBufferRadius")] [SerializeField]   private float slowDownBufferRadius   = 10;
 	[DisableEditing] [SerializeField]                      private float slowDownRadius;
 
 	public float GameRadius

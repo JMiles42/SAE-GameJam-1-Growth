@@ -1,16 +1,15 @@
 ﻿using System.Collections;
 using ForestOfChaosLib.AdvVar;
 using ForestOfChaosLib.Attributes;
-using ForestOfChaosLib.Extensions;
 using UnityEngine;
 
 public class Spawner: MonoBehaviour
 {
 	public             MotorRTRef    Player;
-	public             BoolVariable  Spawning = true;
-	public             WorldSettings WorldSettings;
-	[NoFoldout] public MinMaxFloat   Timer;
 	public             Pool[]        Spawnables;
+	public             BoolVariable  Spawning = true;
+	[NoFoldout] public MinMaxFloat   Timer;
+	public             WorldSettings WorldSettings;
 	private void OnDisable() { }
 
 	private void Start()
@@ -21,9 +20,7 @@ public class Spawner: MonoBehaviour
 	private IEnumerator DoSpawnLoop()
 	{
 		while(Spawning.Value)
-		{
 			yield return new WaitForSeconds(Timer.Random());
-			//Spawnables.UnityRandomObject().
-		}
+		//Spawnables.UnityRandomObject().
 	}
 }
