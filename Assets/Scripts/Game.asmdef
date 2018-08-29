@@ -1,0 +1,10 @@
+{
+    "name": "Game",
+    "references": [
+        "FoCs"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}
