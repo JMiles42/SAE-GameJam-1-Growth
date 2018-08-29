@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1afbb7e21b2fb0e4f9111129fc53a4f5, type: 3}
+  m_Name: Player Brain
+  m_EditorClassIdentifier: 
+  Horizontal: {fileID: 114407692070698646, guid: ba699c91ce950fd42940291d4b6530aa,
+    type: 2}
+  Vertical: {fileID: 114551697136539514, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
+  CurrentMaxSpeed:
+    UseLocal: 1
+    LocalValue: 0
+    Reference: {fileID: 0}
+  EdgeMaxSpeed:
+    UseLocal: 1
+    LocalValue: 2
+    Reference: {fileID: 0}
+  FwdSpeed:
+    UseLocal: 1
+    LocalValue: 7
+    Reference: {fileID: 0}
+  PitchMax:
+    UseLocal: 1
+    LocalValue: 15
+    Reference: {fileID: 0}
+  YawMax:
+    UseLocal: 1
+    LocalValue: 20
+    Reference: {fileID: 0}
+  RollMax:
+    UseLocal: 1
+    LocalValue: 15
+    Reference: {fileID: 0}
+  WorldSettings: {fileID: 11400000, guid: b1707e934d8d0d54ab5c77637021894d, type: 2}
