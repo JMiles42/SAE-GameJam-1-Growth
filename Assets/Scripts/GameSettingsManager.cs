@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-public class GameSettingsManager : MonoBehaviour
+public class GameSettingsManager: MonoBehaviour
 {
 	public WorldSettings WorldSettings;
 
-	void OnEnable()
+	private void OnEnable()
 	{
-		WorldSettings.GameRadius = 40;
+		WorldSettings.GameRadius = 35;
 	}
 }

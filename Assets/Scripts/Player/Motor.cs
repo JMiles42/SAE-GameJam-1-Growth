@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using ForestOfChaosLib;
+using ForestOfChaosLib.AdvVar;
 using ForestOfChaosLib.Attributes;
+using ForestOfChaosLib.Components;
 using ForestOfChaosLib.Extensions;
 using UnityEngine;
 
@@ -9,6 +11,7 @@ public class Motor: FoCsRigidbodyBehaviour
 {
 	[GetSetter("Brain")] [SerializeField] private MotorBrain        brain;
 	public                                        List<PowerUpBase> PowerUps = new List<PowerUpBase>();
+	public                                        FloatVariable     ScaleRef;
 
 	public MotorBrain Brain
 	{
@@ -25,20 +28,67 @@ public class Motor: FoCsRigidbodyBehaviour
 		}
 	}
 
+	[SerializeField] private OnCollisionEvents onCollisionEvents;
+
+	public OnCollisionEvents OnCollisionEvents
+	{
+		get { return onCollisionEvents? onCollisionEvents : (onCollisionEvents = GetComponent<OnCollisionEvents>()); }
+		set { onCollisionEvents = value; }
+	}
+
 	private void OnEnable()
 	{
 		Brain?.EnableBrain(this);
+		OnCollisionEvents.OnCollEnter += OnCollisionEventsOnOnCollEnter;
 	}
 
 	private void OnDisable()
 	{
 		Brain?.DisableBrain(this);
+		OnCollisionEvents.OnCollEnter -= OnCollisionEventsOnOnCollEnter;
+	}
+
+	public event Func<WorldObject, bool> OnDamageInterrupt;
+
+	private void OnCollisionEventsOnOnCollEnter(Collision obj)
+	{
+		var worldObject = obj.gameObject.GetComponent<WorldObject>();
+
+		if(worldObject && worldObject.DealsDamage.Value)
+		{
+			var damaged = false;
+
+			if(OnDamageInterrupt != null)
+				damaged = OnDamageInterrupt(worldObject);
+			else
+				damaged = true;
+
+			if(damaged)
+			{
+				ScaleRef.Value -= 0.5f;
+				if(worldObject.ScoreValue > 0)
+					ScoreManager.AddScore(worldObject.ScoreValue);
+
+				if(ScaleRef.Value <= 1f)
+				{
+					//TODO:DEAD
+				}
+			}
+		}
 	}
 
 	public void AddPowerUp(PowerUpBase powerUp)
 	{
 		PowerUps.Add(powerUp);
 		powerUp.PowerUpEnable(this);
+	}
+
+	public void RemovePowerUp(PowerUpBase powerUp, bool callDisable = true)
+	{
+		PowerUps.Remove(powerUp);
+
+		if(callDisable)
+			powerUp.PowerUpDisable(this);
 	}
 
 #region Movement

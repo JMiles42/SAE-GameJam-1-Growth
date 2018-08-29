@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cddfa40b72a8c8479454f64c9f508e6, type: 3}
   m_Name: Ship_1_Pool
   m_EditorClassIdentifier: 
-  currentIndex: 0
-  currentLength: 0
-  expandable: 0
-  forceReuse: 1
+  currentIndex: 1
+  currentLength: 10
+  expandable: 1
+  forceReuse: 0
   maxCount: 10
   current: {fileID: 0}
   PoolObject: {fileID: 114472879860214954, guid: a144fe19764731e40a59131dc446fa4b,

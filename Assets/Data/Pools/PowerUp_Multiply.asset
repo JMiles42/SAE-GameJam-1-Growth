@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: PowerUp_Multiply
   m_EditorClassIdentifier: 
   currentIndex: 0
-  currentLength: 0
-  expandable: 0
-  forceReuse: 1
+  currentLength: 10
+  expandable: 1
+  forceReuse: 0
   maxCount: 10
   current: {fileID: 0}
   PoolObject: {fileID: 114447176574321520, guid: 985a67d128bc7bc4aa322fbd0eaa0b39,

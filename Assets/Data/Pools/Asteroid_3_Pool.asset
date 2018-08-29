@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cddfa40b72a8c8479454f64c9f508e6, type: 3}
   m_Name: Asteroid_3_Pool
   m_EditorClassIdentifier: 
-  currentIndex: 9
-  currentLength: 10
-  expandable: 0
-  forceReuse: 1
-  maxCount: 20
+  currentIndex: 1
+  currentLength: 20
+  expandable: 1
+  forceReuse: 0
+  maxCount: 40
   current: {fileID: 0}
   PoolObject: {fileID: 114257473347738080, guid: dde6a371028ddd04b86cc9fb550792ec,
     type: 2}

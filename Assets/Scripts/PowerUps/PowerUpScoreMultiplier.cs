@@ -5,35 +5,38 @@ using UnityEngine;
 [CreateAssetMenu(menuName = ButDinoConstants.NAME_ + "PowerUp/Score Multiplier")]
 public class PowerUpScoreMultiplier: PowerUpBase
 {
-	public  IntVariable   Multiplier = 2;
-	public  FloatVariable TimeActive = 20;
-	public  float         time       = 20;
-	private Coroutine     countdown;
+	public  IntVariable Multiplier = 2;
+	private Coroutine   countdown;
 
 	/// <inheritdoc />
-	public override void PowerUpEnable(Motor motor)
+	public override void Enable(Motor motor)
 	{
 		ScoreManager.OnScoreInterrupt -= OnScoreInterrupt;
 		ScoreManager.OnScoreInterrupt += OnScoreInterrupt;
 
 		if(countdown == null)
-			countdown = motor.StartCoroutine(Countdown());
+			countdown = motor.StartCoroutine(Countdown(motor));
 	}
 
-	private IEnumerator Countdown()
+	private IEnumerator Countdown(Motor motor)
 	{
-		while(time >= 0)
+		TimeRemaining.Value = TimeMax.Value;
+
+		while(TimeRemaining.Value >= 0)
 		{
-			TimeActive.Value -= Time.deltaTime;
+			TimeRemaining.Value -= Time.deltaTime;
 
 			yield return null;
 		}
+
+		PowerUpDisable(motor);
 	}
 
 	/// <inheritdoc />
-	public override void PowerUpDisable(Motor motor)
+	public override void Disable(Motor motor)
 	{
 		ScoreManager.OnScoreInterrupt -= OnScoreInterrupt;
+		motor.RemovePowerUp(this, false);
 	}
 
 	private int OnScoreInterrupt(int arg) => arg * Multiplier;

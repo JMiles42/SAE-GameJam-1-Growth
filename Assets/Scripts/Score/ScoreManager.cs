@@ -17,6 +17,6 @@ public class ScoreManager: Singleton<ScoreManager>
 		if(OnScoreInterrupt != null)
 			number = OnScoreInterrupt(number);
 
-		Instance.Score.Value = number;
+		Instance.Score.Value += number;
 	}
 }

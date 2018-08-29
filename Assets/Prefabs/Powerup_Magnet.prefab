@@ -117,6 +117,14 @@ MonoBehaviour:
     UseLocal: 1
     LocalValue: 0
     Reference: {fileID: 0}
+  DealsDamage:
+    UseLocal: 1
+    LocalValue: 0
+    Reference: {fileID: 0}
+  ScoreValue:
+    UseLocal: 1
+    LocalValue: 100
+    Reference: {fileID: 0}
   PowerUp: {fileID: 11400000, guid: c72827c04082ef343b5ea0c9c3effab8, type: 2}
 --- !u!135 &135056436575171188
 SphereCollider:
