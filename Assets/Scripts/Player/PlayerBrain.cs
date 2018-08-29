@@ -1,30 +1,39 @@
 ﻿using System.Collections;
 using ForestOfChaosLib.AdvVar;
 using ForestOfChaosLib.AdvVar.InputSystem;
+using ForestOfChaosLib.Attributes;
+using ForestOfChaosLib.Debugging;
 using UnityEngine;
 
 [CreateAssetMenu]
 public class PlayerBrain: MotorBrain
 {
-	public        AdvInputAxis  Horizontal;
-	public        AdvInputAxis  Vertical;
-	private       Coroutine     Coroutine;
-	public        FloatVariable CurrentMaxSpeed = 10;
-	public        FloatVariable EdgeMaxSpeed    = 10;
-	public        FloatVariable MaxSpeed        = 10;
-	public        FloatVariable PitchMax        = 0;
-	public        FloatVariable YawMax          = 0;
-	public        FloatVariable RollMax         = 0;
-	private       Vector3       velocity;
-	private       Vector3       smoothMoveVec;
-	private       float         smoothPitchV;
-	private       float         smoothYawV;
-	private       float         smoothRollV;
-	private       float         pitch;
-	private       float         yaw;
-	private       float         roll;
+	private const                                                    float         SMALL_FLOAT = 0.01f;
+	public                                                           AdvInputAxis  Horizontal;
+	public                                                           AdvInputAxis  Vertical;
+	private                                                          Coroutine     Coroutine;
+	public                                                           FloatVariable CurrentMaxSpeed = 10;
+	public                                                           FloatVariable EdgeMaxSpeed    = 10;
+	public                                                           FloatVariable MaxSpeed        = 10;
+	public                                                           FloatVariable PitchMax        = 0;
+	public                                                           FloatVariable YawMax          = 0;
+	public                                                           FloatVariable RollMax         = 0;
+	public                                                           WorldSettings WorldSettings;
+	[Header("DEV VALUES")] [DisableEditing] [SerializeField] private Vector3       velocity;
+	[DisableEditing] [SerializeField]                        private Vector3       smoothMoveVec;
+	[DisableEditing] [SerializeField]                        private float         smoothPitchV;
+	[DisableEditing] [SerializeField]                        private float         smoothYawV;
+	[DisableEditing] [SerializeField]                        private float         smoothRollV;
+	[DisableEditing] [SerializeField]                        private float         pitch;
+	[DisableEditing] [SerializeField]                        private float         yaw;
+	[DisableEditing] [SerializeField]                        private float         roll;
 
-	public WorldSettings WorldSettings;
+	private void OnEnable()
+	{
+		roll          = yaw        = pitch        = 0;
+		smoothRollV   = smoothYawV = smoothPitchV = 0;
+		smoothMoveVec = velocity   = Vector3.zero;
+	}
 
 	/// <inheritdoc />
 	public override void EnableBrain(Motor motor)
@@ -39,38 +48,20 @@ public class PlayerBrain: MotorBrain
 		StopLoop(motor);
 	}
 
-	private void DoMove(Motor motor)
+	private IEnumerator BrainLoop(Motor motor)
 	{
-		var smoothDeltaTime = Time.smoothDeltaTime;
-		var deltaTime       = Time.deltaTime;
-		var targetVelocity  = new Vector3(Horizontal, Vertical).normalized * CurrentMaxSpeed;
-		velocity = Vector3.SmoothDamp(velocity, targetVelocity, ref smoothMoveVec, smoothDeltaTime);
-
-		if(velocity.magnitude > CurrentMaxSpeed)
-			velocity = velocity.normalized * CurrentMaxSpeed;
-
-		var targetPos = motor.transform.position + ((velocity + (motor.Forward * MaxSpeed)) * deltaTime);
-
-		// constrain pos to cylinder
-		var targetPos2D            = new Vector2(targetPos.x, targetPos.y);
-		var sqrDstFromCircleCentre = targetPos2D.sqrMagnitude;
-
-		if(sqrDstFromCircleCentre > WorldSettings.SlowDownRadius * WorldSettings.SlowDownRadius)
+		while(true)
 		{
-			var dstFromCentre   = targetPos2D.magnitude;
-			var slowDownPercent = 1 - ((WorldSettings.BoundsRadius - dstFromCentre) / WorldSettings.SlowDownBufferRadius);
-			CurrentMaxSpeed.Value = Mathf.Lerp(CurrentMaxSpeed, EdgeMaxSpeed, slowDownPercent);
-		}
-		else
-			CurrentMaxSpeed.Value = MaxSpeed;
+			if(Horizontal.InputInDeadZone() && Vertical.InputInDeadZone())
+			{
+				motor.Rigidbody.velocity        = Vector3.zero;
+				motor.Rigidbody.angularVelocity = Vector3.zero;
+			}
+			DoRotation(motor);
+			DoMove(motor);
 
-		if(sqrDstFromCircleCentre + 0.001f > (WorldSettings.BoundsRadius * WorldSettings.BoundsRadius))
-		{
-			var offset2D = targetPos2D.normalized * WorldSettings.BoundsRadius;
-			targetPos = new Vector3(offset2D.x, offset2D.y, targetPos.z);
+			yield return null;
 		}
-
-		motor.SetPosition(targetPos);
 	}
 
 	private void DoRotation(Motor motor)
@@ -85,15 +76,39 @@ public class PlayerBrain: MotorBrain
 		motor.SetRotation(new Vector3(pitch, yaw, roll));
 	}
 
-	private IEnumerator BrainLoop(Motor motor)
+	private void DoMove(Motor motor)
 	{
-		while(true)
-		{
-			DoRotation(motor);
-			DoMove(motor);
+		var smoothDeltaTime = Time.smoothDeltaTime;
+		var deltaTime       = Time.deltaTime;
+		var targetVelocity  = new Vector3(-Horizontal, -Vertical).normalized * CurrentMaxSpeed;
+		velocity = Vector3.SmoothDamp(velocity, targetVelocity, ref smoothMoveVec, smoothDeltaTime);
 
-			yield return null;
+		if(velocity.magnitude > CurrentMaxSpeed)
+			velocity = velocity.normalized * CurrentMaxSpeed;
+
+		var targetPos = motor.transform.position + ((velocity + (motor.Forward * MaxSpeed)) * deltaTime);
+
+		// constrain pos to cylinder
+		var targetPos2D            = new Vector2(targetPos.x, targetPos.y);
+		var sqrDstFromCircleCentre = targetPos2D.sqrMagnitude;
+
+		if(sqrDstFromCircleCentre + SMALL_FLOAT > WorldSettings.SlowDownRadius * WorldSettings.SlowDownRadius)
+		{
+			var dstFromCentre   = targetPos2D.magnitude;
+			var slowDownPercent = 1 - ((WorldSettings.BoundsRadius - dstFromCentre) / WorldSettings.SlowDownBufferRadius);
+
+			CurrentMaxSpeed.Value = Mathf.Lerp(CurrentMaxSpeed, EdgeMaxSpeed, slowDownPercent);
 		}
+		else
+			CurrentMaxSpeed.Value = MaxSpeed;
+
+		if(sqrDstFromCircleCentre + SMALL_FLOAT > WorldSettings.BoundsRadius * WorldSettings.BoundsRadius)
+		{
+			var offset2D = targetPos2D.normalized * (WorldSettings.BoundsRadius - SMALL_FLOAT);
+			targetPos = new Vector3(offset2D.x, offset2D.y, targetPos.z);
+		}
+
+		motor.SetPosition(targetPos);
 	}
 
 	private void StopLoop(Motor motor)
