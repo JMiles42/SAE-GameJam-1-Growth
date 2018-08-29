@@ -16,26 +16,34 @@ MonoBehaviour:
   Vertical: {fileID: 114551697136539514, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
   CurrentMaxSpeed:
     UseLocal: 1
-    LocalValue: 0
+    LocalValue: 10
     Reference: {fileID: 0}
   EdgeMaxSpeed:
     UseLocal: 1
     LocalValue: 2
     Reference: {fileID: 0}
-  FwdSpeed:
+  MaxSpeed:
     UseLocal: 1
-    LocalValue: 7
+    LocalValue: 10
     Reference: {fileID: 0}
   PitchMax:
     UseLocal: 1
-    LocalValue: 15
+    LocalValue: 45
     Reference: {fileID: 0}
   YawMax:
     UseLocal: 1
-    LocalValue: 20
+    LocalValue: 45
     Reference: {fileID: 0}
   RollMax:
     UseLocal: 1
-    LocalValue: 15
+    LocalValue: 30
     Reference: {fileID: 0}
   WorldSettings: {fileID: 11400000, guid: b1707e934d8d0d54ab5c77637021894d, type: 2}
+  velocity: {x: 0, y: 0, z: 0}
+  smoothMoveVec: {x: 0, y: 0, z: 0}
+  smoothPitchV: 0
+  smoothYawV: 0
+  smoothRollV: 0
+  pitch: 0
+  yaw: 0
+  roll: 0
