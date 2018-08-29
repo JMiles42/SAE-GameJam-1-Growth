@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a97b80375e6c44bb89a3d6c13168b2, type: 3}
   m_Name: World Settings
   m_EditorClassIdentifier: 
-  gameRadius: 40
+  boundsRadius: 46
   constraintCircleBuffer: 4
+  gameRadius: 50
   slowDownBufferRadius: 10
-  boundsRadius: 36
-  slowDownRadius: 26
+  slowDownRadius: 36

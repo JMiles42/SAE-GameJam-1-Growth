@@ -11,39 +11,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afbb7e21b2fb0e4f9111129fc53a4f5, type: 3}
   m_Name: Player Brain
   m_EditorClassIdentifier: 
-  Horizontal: {fileID: 114407692070698646, guid: ba699c91ce950fd42940291d4b6530aa,
-    type: 2}
-  Vertical: {fileID: 114551697136539514, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
   CurrentMaxSpeed:
     UseLocal: 1
-    LocalValue: 10
+    LocalValue: 5000
     Reference: {fileID: 0}
   EdgeMaxSpeed:
     UseLocal: 1
     LocalValue: 2
     Reference: {fileID: 0}
+  Horizontal: {fileID: 114407692070698646, guid: ba699c91ce950fd42940291d4b6530aa,
+    type: 2}
   MaxSpeed:
     UseLocal: 1
-    LocalValue: 10
+    LocalValue: 20
     Reference: {fileID: 0}
+  pitch: 0
   PitchMax:
     UseLocal: 1
     LocalValue: 45
     Reference: {fileID: 0}
-  YawMax:
-    UseLocal: 1
-    LocalValue: 45
-    Reference: {fileID: 0}
+  roll: 0.000007674234
   RollMax:
     UseLocal: 1
     LocalValue: 30
     Reference: {fileID: 0}
-  WorldSettings: {fileID: 11400000, guid: b1707e934d8d0d54ab5c77637021894d, type: 2}
-  velocity: {x: 0, y: 0, z: 0}
-  smoothMoveVec: {x: 0, y: 0, z: 0}
+  smoothMoveVec: {x: -0, y: 0, z: 0}
   smoothPitchV: 0
-  smoothYawV: 0
   smoothRollV: 0
-  pitch: 0
+  smoothYawV: 0
+  velocity: {x: 0, y: 0, z: 0}
+  Vertical: {fileID: 114551697136539514, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
+  WorldSettings: {fileID: 11400000, guid: b1707e934d8d0d54ab5c77637021894d, type: 2}
   yaw: 0
-  roll: 0
+  YawMax:
+    UseLocal: 1
+    LocalValue: 45
+    Reference: {fileID: 0}

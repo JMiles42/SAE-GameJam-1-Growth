@@ -7,25 +7,26 @@ using UnityEngine;
 [CreateAssetMenu(menuName = ButDinoConstants.NAME_ + "Brains/Player Brain")]
 public class PlayerBrain: MotorBrain
 {
-	private const                                                    float         SMALL_FLOAT = 0.01f;
-	private                                                          Coroutine     Coroutine;
-	public                                                           FloatVariable CurrentMaxSpeed = 10;
-	public                                                           FloatVariable EdgeMaxSpeed    = 10;
-	public                                                           AdvInputAxis  Horizontal;
-	public                                                           FloatVariable MaxSpeed = 10;
-	[DisableEditing] [SerializeField] private                        float         pitch;
-	public                                                           FloatVariable PitchMax = 0;
-	[DisableEditing] [SerializeField] private                        float         roll;
-	public                                                           FloatVariable RollMax = 0;
-	[DisableEditing] [SerializeField]                        private Vector3       smoothMoveVec;
-	[DisableEditing] [SerializeField]                        private float         smoothPitchV;
-	[DisableEditing] [SerializeField]                        private float         smoothRollV;
-	[DisableEditing] [SerializeField]                        private float         smoothYawV;
-	[Header("DEV VALUES")] [DisableEditing] [SerializeField] private Vector3       velocity;
-	public                                                           AdvInputAxis  Vertical;
-	public                                                           WorldSettings WorldSettings;
-	[DisableEditing] [SerializeField] private                        float         yaw;
-	public                                                           FloatVariable YawMax = 0;
+	private const                             float         SMALL_FLOAT = 0.01f;
+	public                                    AdvInputAxis  Vertical;
+	public                                    AdvInputAxis  Horizontal;
+	public                                    FloatVariable CurrentMaxSpeed = 10;
+	public                                    FloatVariable EdgeMaxSpeed    = 10;
+	public                                    FloatVariable MaxSpeed        = 10;
+	public                                    WorldSettings WorldSettings;
+	public                                    FloatVariable PitchMax = 0;
+	public                                    FloatVariable RollMax  = 0;
+	public                                    FloatVariable YawMax   = 0;
+
+	private                                   Coroutine     Coroutine;
+	[DisableEditing] [SerializeField] private Vector3       smoothMoveVec;
+	[DisableEditing] [SerializeField] private float         smoothPitchV;
+	[DisableEditing] [SerializeField] private float         smoothRollV;
+	[DisableEditing] [SerializeField] private float         smoothYawV;
+	[DisableEditing] [SerializeField] private Vector3       velocity;
+	[DisableEditing] [SerializeField] private float         pitch;
+	[DisableEditing] [SerializeField] private float         roll;
+	[DisableEditing] [SerializeField] private float         yaw;
 
 	private void OnEnable()
 	{

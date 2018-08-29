@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efba2463adf75c4bbdb48e1273db7b4, type: 3}
+  m_Name: Power Up Score Multiplier
+  m_EditorClassIdentifier: 
+  Multiplier:
+    UseLocal: 1
+    LocalValue: 2
+    Reference: {fileID: 0}
+  TimeActive:
+    UseLocal: 1
+    LocalValue: 20
+    Reference: {fileID: 0}
+  time: 20
