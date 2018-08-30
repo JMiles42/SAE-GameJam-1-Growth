@@ -139,3 +139,5 @@ MonoBehaviour:
     UseLocal: 1
     LocalValue: -50
     Reference: {fileID: 0}
+  interactedWithPlayer: 0
+  internalInteractedWithPlayer: 0

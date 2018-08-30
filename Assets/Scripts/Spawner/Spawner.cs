@@ -25,8 +25,13 @@ public class Spawner: MonoBehaviour
 
 	private void DoInit()
 	{
-		for(var i = 10; i < 100; i += 2)
-			DoSpawnInWorld(SafeSpawnables.UnityRandomObject().Next, i);
+		for(var i = 10; i < 100; i += 4)
+			RandomSpawn(i);
+	}
+
+	private void RandomSpawn(float zDist)
+	{
+		DoSpawnInWorld(Random.value >= 0.5f? DangerousSpawnables.UnityRandomObject().Next : SafeSpawnables.UnityRandomObject().Next, zDist);
 	}
 
 	private IEnumerator DoSpawnLoop()

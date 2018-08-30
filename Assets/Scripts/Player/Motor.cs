@@ -12,7 +12,7 @@ public class Motor: FoCsRigidbodyBehaviour
 	[GetSetter("Brain")] [SerializeField] private MotorBrain        brain;
 	[SerializeField]                      private OnCollisionEvents onCollisionEvents;
 	public                                        List<PowerUpBase> PowerUps = new List<PowerUpBase>();
-	public                                        FloatVariable     ScaleRef;
+	[ShowAsComponent] public                      FloatReference    ScaleRef;
 
 	public MotorBrain Brain
 	{
@@ -46,8 +46,8 @@ public class Motor: FoCsRigidbodyBehaviour
 
 	private void OnDisable()
 	{
-		foreach(var powerUpBase in PowerUps)
-			powerUpBase.Disable(this);
+		for(var i = PowerUps.Count - 1; i >= 0; i--)
+			PowerUps[i].Disable(this);
 
 		Brain?.DisableBrain(this);
 		OnCollisionEvents.OnCollEnter -= CollEnter;
@@ -59,7 +59,12 @@ public class Motor: FoCsRigidbodyBehaviour
 	{
 		var worldObject = obj.gameObject.GetComponent<WorldObject>();
 
-		if(worldObject && worldObject.DealsDamage.Value)
+		if(worldObject.interactedWithPlayer)
+			return;
+
+		worldObject.interactedWithPlayer = true;
+
+		if(worldObject && worldObject.DealsDamage)
 		{
 			var damaged = false;
 
