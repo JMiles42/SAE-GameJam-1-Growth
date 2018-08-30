@@ -12,19 +12,12 @@ public class WorldObjectMover: FoCsBehaviour
 	private                 Coroutine     Coroutine;
 	public                  FloatVariable LerpSpeed;
 	[DisableEditing] public List<Vector3> list;
-	private                 Vector3       position;
 	public                  float         PositionScale = 5;
 
 	private void OnEnable()
 	{
-		position = transform.position;
 		StopCoroutine();
 		Coroutine = StartCoroutine(DoTransformAnimation());
-	}
-
-	private void Start()
-	{
-		position = transform.position;
 	}
 
 	private void OnDisable()
@@ -40,10 +33,8 @@ public class WorldObjectMover: FoCsBehaviour
 
 	private IEnumerator DoTransformAnimation()
 	{
-		position = transform.position;
-		list     = NewList();
+		list = NewList();
 		var lerpTime = 0f;
-		var vel      = Vector3.zero;
 
 		while(gameObject.activeSelf)
 		{

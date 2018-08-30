@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4359672153800936}
   - component: {fileID: 33895429786536532}
   - component: {fileID: 23484847457781966}
+  - component: {fileID: 64630182622249722}
   - component: {fileID: 54667560588220764}
   - component: {fileID: 114643729034040426}
-  - component: {fileID: 64630182622249722}
+  - component: {fileID: 114416626187018158}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Untagged
@@ -115,6 +116,25 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 6c0c018207b694e4d86a046ab64ee9a1, type: 3}
+--- !u!114 &114416626187018158
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1360367924028496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649f36448691aeb4baa72bbf74078dc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotateAngle: {x: 2, y: 2, z: 2}
+  RandomizeAtStart: 1
+  RotateAngleMax: {x: -2, y: -2, z: -2}
+  RandomizeX: 1
+  RandomizeY: 1
+  RandomizeZ: 1
+  TransformSpace: 0
+  TransformToMove: {fileID: 4359672153800936}
 --- !u!114 &114643729034040426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,14 +146,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117dbc2cbf713ab4586399ec59c0cf36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateOnSpawn: 0
-  ScaleIncreaseAmount:
-    UseLocal: 1
-    LocalValue: 0.075
-    Reference: {fileID: 0}
   DealsDamage:
     UseLocal: 1
     LocalValue: 0
+    Reference: {fileID: 0}
+  RotateOnSpawn: 1
+  ScaleIncreaseAmount:
+    UseLocal: 1
+    LocalValue: 0.075
     Reference: {fileID: 0}
   ScoreValue:
     UseLocal: 1

@@ -112,12 +112,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e934538f6285d4b993127787de70e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DealsDamage:
+    UseLocal: 1
+    LocalValue: 0
+    Reference: {fileID: 0}
   RotateOnSpawn: 0
   ScaleIncreaseAmount:
-    UseLocal: 1
-    LocalValue: 0.5
-    Reference: {fileID: 0}
-  DealsDamage:
     UseLocal: 1
     LocalValue: 0
     Reference: {fileID: 0}

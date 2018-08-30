@@ -8,24 +8,25 @@ using UnityEngine;
 public class PlayerBrain: MotorBrain
 {
 	private const                             float         SMALL_FLOAT = 0.01f;
-	private                                   Coroutine     Coroutine;
+	public AdvInputAxis Horizontal;
+	public AdvInputAxis Vertical;
 	public                                    FloatVariable CurrentMaxSpeed = 10;
 	public                                    FloatVariable EdgeMaxSpeed    = 10;
-	public                                    AdvInputAxis  Horizontal;
+
+	public                                    WorldSettings WorldSettings;
 	public                                    FloatVariable MaxSpeed = 10;
-	[DisableEditing] [SerializeField] private float         pitch;
 	public                                    FloatVariable PitchMax = 0;
-	[DisableEditing] [SerializeField] private float         roll;
-	public                                    FloatVariable RollMax = 0;
+	public                                    FloatVariable RollMax  = 0;
+	public                                    FloatVariable YawMax   = 0;
+	private                                   Coroutine     Coroutine;
 	[DisableEditing] [SerializeField] private Vector3       smoothMoveVec;
 	[DisableEditing] [SerializeField] private float         smoothPitchV;
 	[DisableEditing] [SerializeField] private float         smoothRollV;
 	[DisableEditing] [SerializeField] private float         smoothYawV;
 	[DisableEditing] [SerializeField] private Vector3       velocity;
-	public                                    AdvInputAxis  Vertical;
-	public                                    WorldSettings WorldSettings;
+	[DisableEditing] [SerializeField] private float         pitch;
+	[DisableEditing] [SerializeField] private float         roll;
 	[DisableEditing] [SerializeField] private float         yaw;
-	public                                    FloatVariable YawMax = 0;
 
 	private void OnEnable()
 	{
@@ -51,11 +52,8 @@ public class PlayerBrain: MotorBrain
 	{
 		while(true)
 		{
-			if(Horizontal.InputInDeadZone() && Vertical.InputInDeadZone())
-			{
-				motor.Rigidbody.velocity        = Vector3.zero;
-				motor.Rigidbody.angularVelocity = Vector3.zero;
-			}
+			motor.Rigidbody.velocity        = Vector3.zero;
+			motor.Rigidbody.angularVelocity = Vector3.zero;
 
 			DoRotation(motor);
 			DoMove(motor);
