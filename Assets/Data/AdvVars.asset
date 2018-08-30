@@ -11,6 +11,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5753d0a96ebbb6244a8fe2813eeac80d, type: 3}
   m_Name: AdvVars
   m_EditorClassIdentifier: 
+--- !u!114 &114060165929770158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2137a25dbaace4b865e3bd8e7cf3cd, type: 3}
+  m_Name: ShieldIcon
+  m_EditorClassIdentifier: 
 --- !u!114 &114138254098603698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22,7 +33,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea825b41d4107b42a79681dbc543add, type: 3}
   m_Name: ExtraScale
   m_EditorClassIdentifier: 
-  storedValue: -5.9000015
+  storedValue: 1.825
+--- !u!114 &114247129039179340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2137a25dbaace4b865e3bd8e7cf3cd, type: 3}
+  m_Name: MagnetIcon
+  m_EditorClassIdentifier: 
 --- !u!114 &114765435426539336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34,4 +56,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71c01b1d1593fa4097d57bd8caed10d, type: 3}
   m_Name: ScoreValue
   m_EditorClassIdentifier: 
-  storedValue: 430
+  storedValue: 140
+--- !u!114 &114772008525419002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2137a25dbaace4b865e3bd8e7cf3cd, type: 3}
+  m_Name: MultiplyIcon
+  m_EditorClassIdentifier: 

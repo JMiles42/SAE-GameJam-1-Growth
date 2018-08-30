@@ -1,9 +1,11 @@
 ﻿using ForestOfChaosLib.AdvVar;
 using ForestOfChaosLib.FoCsUI.Image;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoreUI: MonoBehaviour
 {
+	public                   IntReference  Score;
 	[SerializeField] private FoCsTextEvent textEvent;
 
 	public FoCsTextEvent TextEvent
@@ -11,8 +13,6 @@ public class ScoreUI: MonoBehaviour
 		get { return textEvent ?? (textEvent = GetComponent<FoCsTextEvent>()); }
 		set { textEvent = value; }
 	}
-
-	public IntReference Score;
 
 	private void OnEnable()
 	{
@@ -37,5 +37,11 @@ public class ScoreUI: MonoBehaviour
 	private void DrawScore(int number)
 	{
 		TextEvent.Text = $"Score: {number}";
+	}
+
+	private void Update()
+	{
+		if(Score.Value >= 1500)
+			SceneManager.LoadScene("WinningScene", LoadSceneMode.Single);
 	}
 }

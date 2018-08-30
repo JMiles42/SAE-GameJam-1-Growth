@@ -130,15 +130,15 @@ MonoBehaviour:
   RotateOnSpawn: 0
   ScaleIncreaseAmount:
     UseLocal: 1
-    LocalValue: -0.1
+    LocalValue: 0.05
     Reference: {fileID: 0}
   DealsDamage:
     UseLocal: 1
-    LocalValue: 1
+    LocalValue: 0
     Reference: {fileID: 0}
   ScoreValue:
     UseLocal: 1
-    LocalValue: -50
+    LocalValue: 50
     Reference: {fileID: 0}
 --- !u!114 &114961775938190592
 MonoBehaviour:

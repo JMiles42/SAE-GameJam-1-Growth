@@ -137,5 +137,5 @@ MonoBehaviour:
     Reference: {fileID: 0}
   ScoreValue:
     UseLocal: 1
-    LocalValue: -10
+    LocalValue: -50
     Reference: {fileID: 0}

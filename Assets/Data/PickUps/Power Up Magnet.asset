@@ -11,3 +11,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6062bfbac59bfe4f89ff6c23950dcf8, type: 3}
   m_Name: Power Up Magnet
   m_EditorClassIdentifier: 
+  TimeMax:
+    UseLocal: 1
+    LocalValue: 20
+    Reference: {fileID: 0}
+  TimeRemaining:
+    UseLocal: 1
+    LocalValue: 18.828983
+    Reference: {fileID: 0}
+  MagnetRadius:
+    UseLocal: 1
+    LocalValue: 30
+    Reference: {fileID: 0}
+  MagnetStrength:
+    UseLocal: 1
+    LocalValue: 2
+    Reference: {fileID: 0}
+  Icon: {fileID: 114247129039179340, guid: 15bf43b9c639bf24e88a276c2fb47216, type: 2}

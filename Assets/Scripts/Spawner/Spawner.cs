@@ -6,16 +6,16 @@ using UnityEngine;
 
 public class Spawner: MonoBehaviour
 {
-	public             MotorRTRef        Player;
-	public             BoolVariable      Spawning = true;
-	[NoFoldout] public MinMaxFloat       SafeTimer;
-	public             WorldObjectPool[] SafeSpawnables;
-	[NoFoldout] public MinMaxFloat       PowerUpTimer;
-	public             WorldObjectPool[] PowerUpSpawnables;
-	[NoFoldout] public MinMaxFloat       DangerousTimer;
-	public             WorldObjectPool[] DangerousSpawnables;
-	public             WorldSettings     WorldSettings;
 	public const       float             SPAWN_DISTANCE = 100;
+	public             WorldObjectPool[] DangerousSpawnables;
+	[NoFoldout] public MinMaxFloat       DangerousTimer;
+	public             MotorRTRef        Player;
+	public             WorldObjectPool[] PowerUpSpawnables;
+	[NoFoldout] public MinMaxFloat       PowerUpTimer;
+	public             WorldObjectPool[] SafeSpawnables;
+	[NoFoldout] public MinMaxFloat       SafeTimer;
+	public             BoolVariable      Spawning = true;
+	public             WorldSettings     WorldSettings;
 	private void OnDisable() { }
 
 	private void Start()

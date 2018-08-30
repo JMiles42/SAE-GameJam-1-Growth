@@ -8,9 +8,12 @@ using UnityEngine;
 
 public class WorldObjectMover: FoCsBehaviour
 {
-	private Vector3   position;
-	public  float     PositionScale = 5;
-	private Coroutine Coroutine;
+	private const           float         LERP_TIME_THRESHOLD = 0.98f;
+	private                 Coroutine     Coroutine;
+	public                  FloatVariable LerpSpeed;
+	[DisableEditing] public List<Vector3> list;
+	private                 Vector3       position;
+	public                  float         PositionScale = 5;
 
 	private void OnEnable()
 	{
@@ -34,10 +37,6 @@ public class WorldObjectMover: FoCsBehaviour
 		if(Coroutine != null)
 			StopCoroutine(Coroutine);
 	}
-
-	private const           float         LERP_TIME_THRESHOLD = 0.98f;
-	[DisableEditing] public List<Vector3> list;
-	public                  FloatVariable LerpSpeed;
 
 	private IEnumerator DoTransformAnimation()
 	{

@@ -1,11 +1,15 @@
 ﻿using System.Collections;
+using ForestOfChaosLib.AdvVar.RuntimeRef;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = ButDinoConstants.NAME_ + "PowerUp/Shield")]
 public class PowerUpShield: PowerUpBase
 {
-	private Coroutine Coroutine;
-	private bool      used;
+	private Coroutine            Coroutine;
+	public  GameObjectRunTimeRef Icon;
+	private Image                shieldIcon;
+	private bool                 used;
 
 	/// <inheritdoc />
 	public override void Enable(Motor motor)
@@ -14,7 +18,9 @@ public class PowerUpShield: PowerUpBase
 		motor.OnDamageInterrupt -= DamageInterrupt;
 		motor.OnDamageInterrupt += DamageInterrupt;
 		//TODO: SPAWN/ENABLE ART AROUND PLAYER
-		Coroutine = motor.StartCoroutine(DoLoop(motor));
+		Coroutine          = motor.StartCoroutine(DoLoop(motor));
+		shieldIcon         = Icon.Reference.GetComponent<Image>();
+		shieldIcon.enabled = true;
 	}
 
 	private bool DamageInterrupt(WorldObject arg)
@@ -30,6 +36,7 @@ public class PowerUpShield: PowerUpBase
 		motor.OnDamageInterrupt -= DamageInterrupt;
 		StopCoroutine(motor);
 		motor.RemovePowerUp(this, false);
+		shieldIcon.enabled = false;
 	}
 
 	private IEnumerator DoLoop(Motor motor)

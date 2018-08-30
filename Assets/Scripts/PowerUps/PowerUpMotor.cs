@@ -2,13 +2,15 @@
 {
 	public PowerUpBase PowerUp;
 
-	private void OnEnable()
+	protected override void OnEnable()
 	{
+		base.OnEnable();
 		OnPlayerInteraction += PlayerInteraction;
 	}
 
-	private void OnDisable()
+	protected override void OnDisable()
 	{
+		base.OnDisable();
 		OnPlayerInteraction -= PlayerInteraction;
 	}
 
