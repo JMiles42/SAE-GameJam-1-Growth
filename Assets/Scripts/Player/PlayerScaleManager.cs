@@ -20,6 +20,6 @@ public class PlayerScaleManager: FoCsBehaviour
 	{
 		var deltaTime = Time.deltaTime;
 		transform.localScale     = Vector3.Lerp(transform.localScale, Vector3.one * ScaleRef.Value.Clamp(0.2f) * 3, deltaTime * ScaleSpeed);
-		WorldSettings.GameRadius = Lerps.Lerp(WorldSettings.StartRadius, 120f, ScaleRef.Value);
+		WorldSettings.GameRadius = Lerps.Lerp(WorldSettings.StartRadius, WorldSettings.EndRadius, ScaleRef.Value);
 	}
 }

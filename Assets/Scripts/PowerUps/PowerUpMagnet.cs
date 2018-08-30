@@ -59,23 +59,18 @@ public class PowerUpMagnet: PowerUpBase
 				if(!worldObject)
 					continue;
 
-				if(!worldObject.DealsDamage)
+				if(!worldObject.DealsDamage && !(worldObject is PowerUpMotor))
 				{
 					if(worldObject.Position.Distance(motor.Position) <= 10)
-					{
 						worldObject.Position = Vector3.Lerp(worldObject.Position, motorPos, deltaTimeLoop * 3);
-					}
 					else if(worldObject.Position.Distance(motor.Position) <= 5)
 					{
 						motor.UsePickup(worldObject);
 						worldObject.gameObject.SetActive(false);
 					}
 					else
-					{
 						worldObject.Position = Vector3.Lerp(worldObject.Position, motorPos, deltaTimeLoop);
-					}
 				}
-
 			}
 
 			TimeRemaining.Value -= deltaTime;
