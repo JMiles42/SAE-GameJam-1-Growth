@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using ForestOfChaosLib.AdvVar;
 using ForestOfChaosLib.AdvVar.RuntimeRef;
+using ForestOfChaosLib.Extensions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +28,7 @@ public class PowerUpMagnet: PowerUpBase
 	{
 		StopCoroutine(motor);
 		motor.RemovePowerUp(this, false);
+		if(magnetIcon)
 		magnetIcon.enabled = false;
 	}
 
@@ -44,8 +46,8 @@ public class PowerUpMagnet: PowerUpBase
 		{
 			var ray           = new Ray(motor.Position, motor.Forward);
 			var hits          = Physics.SphereCastAll(ray, MagnetRadius);
-			var deltaTimeRaw  = Time.deltaTime;
-			var deltaTimeLoop = deltaTimeRaw * MagnetStrength;
+			var deltaTime  = Time.deltaTime;
+			var deltaTimeLoop = deltaTime * (MagnetStrength);
 
 			foreach(var hit in hits)
 			{
@@ -55,7 +57,7 @@ public class PowerUpMagnet: PowerUpBase
 					worldObject.Position = Vector3.Lerp(worldObject.Position, motor.Position, deltaTimeLoop);
 			}
 
-			TimeRemaining.Value -= deltaTimeRaw;
+			TimeRemaining.Value -= deltaTime;
 
 			yield return null;
 		}

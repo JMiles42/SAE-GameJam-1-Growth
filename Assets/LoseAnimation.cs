@@ -13,7 +13,7 @@ public class LoseAnimation: MonoBehaviour
 		if(collision.gameObject.name == "omnni")
 			StartCoroutine(Play());
 
-		print("shatter");
+		//print("shatter");
 	}
 
 	private IEnumerator Play()

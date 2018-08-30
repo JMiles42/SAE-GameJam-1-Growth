@@ -1,24 +1,30 @@
 ﻿using ForestOfChaosLib;
 using ForestOfChaosLib.AdvVar;
+using ForestOfChaosLib.Attributes;
+using ForestOfChaosLib.Extensions;
+using ForestOfChaosLib.Maths.Curves.Components;
 using ForestOfChaosLib.Maths.Lerp;
 using UnityEngine;
-using UnityEngine.Animations;
 
 public class CameraMotor: FoCsBehaviour
 {
-	public  Vector3            Offset = new Vector3(0, 3, -7);
-	public  PositionConstraint PositionConstraint;
-	public  FloatVariable      ScaleRef;
-	public  Transform          Target;
-	private Vector3            velocity;
+	[ShowAsComponent] public                  FloatReference   ScaleRef;
+	public                                    FloatVariable    Damping  = 0.2f;
+	[SerializeField] [DisableEditing] private Vector3          velocity = Vector3.one;
+	[NoObjectFoldout]                 public  TDCurveBehaviour Curve;
+	private                                   float            lerpDistance = 0;
 
 	private void Start()
 	{
-		Offset = transform.position - Target.position;
+		velocity = Vector3.one;
 	}
 
 	private void LateUpdate()
 	{
-		PositionConstraint.translationOffset = Vector3Lerp.Lerp(Target.position, Target.position + Offset, ScaleRef.Value);
+		lerpDistance = Lerps.Lerp(lerpDistance, ScaleRef.Value.Clamp(), Time.deltaTime);
+		var pos = transform.position;
+		var tD  = Curve.Lerp(lerpDistance);
+		tD.Position = Vector3.SmoothDamp(pos, tD.Position, ref velocity, Damping);
+		tD.ApplyData(transform);
 	}
 }

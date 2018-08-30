@@ -22,8 +22,9 @@ GameObject:
   - component: {fileID: 33596073620366652}
   - component: {fileID: 23189251950564048}
   - component: {fileID: 54569530279450850}
-  - component: {fileID: 114773497894097490}
   - component: {fileID: 64828225654616228}
+  - component: {fileID: 114773497894097490}
+  - component: {fileID: 114753841610347176}
   m_Layer: 0
   m_Name: Steak
   m_TagString: Untagged
@@ -115,6 +116,25 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 106040c364d8f9f4a94e524925b47831, type: 3}
+--- !u!114 &114753841610347176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1828046545091846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649f36448691aeb4baa72bbf74078dc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotateAngle: {x: 2, y: 2, z: 2}
+  RandomizeAtStart: 1
+  RotateAngleMax: {x: -2, y: -2, z: -2}
+  RandomizeX: 1
+  RandomizeY: 1
+  RandomizeZ: 1
+  TransformSpace: 0
+  TransformToMove: {fileID: 4751971018223544}
 --- !u!114 &114773497894097490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,14 +146,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117dbc2cbf713ab4586399ec59c0cf36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateOnSpawn: 0
-  ScaleIncreaseAmount:
-    UseLocal: 1
-    LocalValue: 0.7
-    Reference: {fileID: 0}
   DealsDamage:
     UseLocal: 1
     LocalValue: 0
+    Reference: {fileID: 0}
+  RotateOnSpawn: 1
+  ScaleIncreaseAmount:
+    UseLocal: 1
+    LocalValue: 0.1
     Reference: {fileID: 0}
   ScoreValue:
     UseLocal: 1

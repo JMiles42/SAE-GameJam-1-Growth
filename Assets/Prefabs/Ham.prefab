@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4391543264293704}
   - component: {fileID: 33096836998213700}
   - component: {fileID: 23434085946437388}
+  - component: {fileID: 64606222931764756}
   - component: {fileID: 54580659610499170}
   - component: {fileID: 114363452327398216}
-  - component: {fileID: 64606222931764756}
+  - component: {fileID: 114796554103066158}
   m_Layer: 0
   m_Name: Ham
   m_TagString: Untagged
@@ -126,16 +127,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 117dbc2cbf713ab4586399ec59c0cf36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateOnSpawn: 0
-  ScaleIncreaseAmount:
-    UseLocal: 1
-    LocalValue: 0.2
-    Reference: {fileID: 0}
   DealsDamage:
     UseLocal: 1
     LocalValue: 0
+    Reference: {fileID: 0}
+  RotateOnSpawn: 1
+  ScaleIncreaseAmount:
+    UseLocal: 1
+    LocalValue: 0.035
     Reference: {fileID: 0}
   ScoreValue:
     UseLocal: 1
     LocalValue: 10
     Reference: {fileID: 0}
+--- !u!114 &114796554103066158
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1057871563255038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649f36448691aeb4baa72bbf74078dc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotateAngle: {x: 2, y: 2, z: 2}
+  RandomizeAtStart: 1
+  RotateAngleMax: {x: -2, y: -2, z: -2}
+  RandomizeX: 1
+  RandomizeY: 1
+  RandomizeZ: 1
+  TransformSpace: 0
+  TransformToMove: {fileID: 4391543264293704}

@@ -17,10 +17,10 @@ MonoBehaviour:
     Reference: {fileID: 0}
   TimeRemaining:
     UseLocal: 1
-    LocalValue: -0.011912195
-    Reference: {fileID: 0}
-  Multiplier:
-    UseLocal: 1
-    LocalValue: 2
+    LocalValue: 19.98
     Reference: {fileID: 0}
   Icon: {fileID: 114772008525419002, guid: 15bf43b9c639bf24e88a276c2fb47216, type: 2}
+  Multiplier:
+    UseLocal: 1
+    LocalValue: 4
+    Reference: {fileID: 0}

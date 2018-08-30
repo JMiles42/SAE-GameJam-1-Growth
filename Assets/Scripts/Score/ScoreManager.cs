@@ -9,7 +9,7 @@ public class ScoreManager: Singleton<ScoreManager>
 
 	private void Start()
 	{
-		Score.InternalData.LocalValue = Score.InternalData.GlobalReference.Value = 0;
+		Score.Value = 0;
 	}
 
 	public static void AddScore(int number)

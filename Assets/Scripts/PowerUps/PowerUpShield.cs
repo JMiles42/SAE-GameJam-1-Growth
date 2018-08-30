@@ -36,7 +36,9 @@ public class PowerUpShield: PowerUpBase
 		motor.OnDamageInterrupt -= DamageInterrupt;
 		StopCoroutine(motor);
 		motor.RemovePowerUp(this, false);
-		shieldIcon.enabled = false;
+
+		if(shieldIcon)
+			shieldIcon.enabled = false;
 	}
 
 	private IEnumerator DoLoop(Motor motor)

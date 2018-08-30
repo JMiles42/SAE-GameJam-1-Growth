@@ -38,18 +38,24 @@ public class Motor: FoCsRigidbodyBehaviour
 	private void OnEnable()
 	{
 		Brain?.EnableBrain(this);
-		OnCollisionEvents.OnCollEnter += OnCollisionEventsOnOnCollEnter;
+		OnCollisionEvents.OnCollEnter += CollEnter;
+
+		foreach(var powerUpBase in PowerUps)
+			powerUpBase.Enable(this);
 	}
 
 	private void OnDisable()
 	{
+		foreach(var powerUpBase in PowerUps)
+			powerUpBase.Disable(this);
+
 		Brain?.DisableBrain(this);
-		OnCollisionEvents.OnCollEnter -= OnCollisionEventsOnOnCollEnter;
+		OnCollisionEvents.OnCollEnter -= CollEnter;
 	}
 
 	public event Func<WorldObject, bool> OnDamageInterrupt;
 
-	private void OnCollisionEventsOnOnCollEnter(Collision obj)
+	private void CollEnter(Collision obj)
 	{
 		var worldObject = obj.gameObject.GetComponent<WorldObject>();
 
@@ -64,16 +70,14 @@ public class Motor: FoCsRigidbodyBehaviour
 
 			if(damaged)
 			{
-				ScaleRef.Value -= 0.5f;
-
-				if(worldObject.ScoreValue > 0)
-					ScoreManager.AddScore(worldObject.ScoreValue);
-
-				if(ScaleRef.Value <= 1f)
-				{
-					//TODO:DEAD
-				}
+				ScaleRef.Value = (ScaleRef.Value + worldObject.ScaleIncreaseAmount).Clamp();
+				ScoreManager.AddScore(worldObject.ScoreValue);
 			}
+		}
+		else
+		{
+			ScaleRef.Value = (ScaleRef.Value + worldObject.ScaleIncreaseAmount).Clamp();
+			ScoreManager.AddScore(worldObject.ScoreValue);
 		}
 	}
 

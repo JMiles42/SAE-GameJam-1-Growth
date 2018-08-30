@@ -1,6 +1,8 @@
-﻿public class PowerUpMotor: WorldObject
+﻿using ForestOfChaosLib.Attributes;
+
+public class PowerUpMotor: WorldObject
 {
-	public PowerUpBase PowerUp;
+	[ShowAsComponent] public PowerUpBase PowerUp;
 
 	protected override void OnEnable()
 	{

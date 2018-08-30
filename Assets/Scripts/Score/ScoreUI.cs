@@ -1,5 +1,5 @@
 ﻿using ForestOfChaosLib.AdvVar;
-using ForestOfChaosLib.FoCsUI.Image;
+using ForestOfChaosLib.FoCsUI.Text;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 

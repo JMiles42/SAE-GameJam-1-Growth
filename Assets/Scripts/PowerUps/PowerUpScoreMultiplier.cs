@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using ForestOfChaosLib.AdvVar;
 using ForestOfChaosLib.AdvVar.RuntimeRef;
+using ForestOfChaosLib.Attributes;
 using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = ButDinoConstants.NAME_ + "PowerUp/Score Multiplier")]
 public class PowerUpScoreMultiplier: PowerUpBase
 {
-	private Coroutine            countdown;
-	public  GameObjectRunTimeRef Icon;
-	public  IntVariable          Multiplier = 2;
-	private Image                multiplierIcon;
+	private                  Coroutine            countdown;
+	[NoObjectFoldout] public GameObjectRunTimeRef Icon;
+	public                   IntVariable          Multiplier = 2;
+	private                  Image                multiplierIcon;
 
 	/// <inheritdoc />
 	public override void Enable(Motor motor)
@@ -43,7 +44,9 @@ public class PowerUpScoreMultiplier: PowerUpBase
 	{
 		ScoreManager.OnScoreInterrupt -= OnScoreInterrupt;
 		motor.RemovePowerUp(this, false);
-		multiplierIcon.enabled = false;
+
+		if(multiplierIcon)
+			multiplierIcon.enabled = false;
 	}
 
 	private int OnScoreInterrupt(int arg) => arg * Multiplier;
