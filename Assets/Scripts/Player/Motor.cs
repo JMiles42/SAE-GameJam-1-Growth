@@ -193,7 +193,7 @@ public class Motor: FoCsRigidbodyBehaviour
 		else
 		{
 			ScaleRef.Value = (ScaleRef.Value + (worldObject.ScaleIncreaseAmount)).Clamp(0.2f);
-			ScoreManager.AddScore(worldObject.ScoreValue);
+			ScoreManager.AddScore(worldObject.ScoreValue * 2);
 		}
 	}
 }

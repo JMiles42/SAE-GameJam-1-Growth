@@ -9,6 +9,7 @@ using UnityEngine;
 public class WorldSettings: ScriptableObject
 {
 	public                                                         float StartRadius = 30;
+	public                                                         float EndRadius = 80;
 	[DisableEditing] [SerializeField]                      private float boundsRadius;
 	[GetSetter("ConstraintCircleBuffer")] [SerializeField] private float constraintCircleBuffer = 1;
 	[GetSetter("GameRadius")] [SerializeField]             private float gameRadius             = 70;

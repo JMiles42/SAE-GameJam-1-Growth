@@ -41,7 +41,7 @@ public class ScoreUI: MonoBehaviour
 
 	private void Update()
 	{
-		if(Score.Value >= 1500)
+		if(Score.Value >= 2000)
 			SceneManager.LoadScene("WinningScene", LoadSceneMode.Single);
 	}
 }

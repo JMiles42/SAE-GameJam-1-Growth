@@ -124,8 +124,10 @@ MonoBehaviour:
     Reference: {fileID: 0}
   ScoreValue:
     UseLocal: 1
-    LocalValue: 100
+    LocalValue: 0
     Reference: {fileID: 0}
+  interactedWithPlayer: 0
+  internalInteractedWithPlayer: 0
   PowerUp: {fileID: 11400000, guid: 56e18d47bba1d744a920c2dc779d2007, type: 2}
 --- !u!135 &135714307557324400
 SphereCollider:
