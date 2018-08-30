@@ -10,7 +10,7 @@ public class OmnniExplode: MonoBehaviour
 		if(collision.gameObject.name == "DinosaurRigger")
 			StartCoroutine(Play());
 
-		print("shatter");
+		//print("shatter");
 	}
 
 	private IEnumerator Play()
