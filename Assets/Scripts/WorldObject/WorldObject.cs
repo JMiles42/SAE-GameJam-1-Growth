@@ -30,10 +30,14 @@ public class WorldObject: FoCsRigidbodyBehaviour
 	{
 		var motor = collision.gameObject.GetComponent<Motor>();
 
-		if(motor && !internalInteractedWithPlayer)
-			internalInteractedWithPlayer = true;
+		if(!motor)
+			return;
 
-		OnPlayerInteraction?.Invoke(motor);
+		if(!internalInteractedWithPlayer)
+		{
+			internalInteractedWithPlayer = true;
+			OnPlayerInteraction?.Invoke(motor);
+		}
 		gameObject.SetActive(false);
 	}
 }

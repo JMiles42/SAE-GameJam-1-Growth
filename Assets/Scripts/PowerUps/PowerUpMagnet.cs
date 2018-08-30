@@ -51,17 +51,31 @@ public class PowerUpMagnet: PowerUpBase
 			var deltaTimeLoop = deltaTime * MagnetStrength;
 			var motorPos      = motor.Position;
 
-			foreach(var hit in hits)
+			for(var i = hits.Length - 1; i >= 0; i--)
 			{
+				var hit         = hits[i];
 				var worldObject = hit.transform.GetComponent<WorldObject>();
 
-				if(worldObject && !worldObject.DealsDamage)
-					worldObject.Position = Vector3.Lerp(worldObject.Position, motorPos, deltaTimeLoop);
+				if(!worldObject)
+					continue;
 
-				if(worldObject.Position.Distance(motor.Position) <= 5)
-					motor.UsePickup(worldObject);
+				if(!worldObject.DealsDamage)
+				{
+					if(worldObject.Position.Distance(motor.Position) <= 10)
+					{
+						worldObject.Position = Vector3.Lerp(worldObject.Position, motorPos, deltaTimeLoop * 3);
+					}
+					else if(worldObject.Position.Distance(motor.Position) <= 5)
+					{
+						motor.UsePickup(worldObject);
+						worldObject.gameObject.SetActive(false);
+					}
+					else
+					{
+						worldObject.Position = Vector3.Lerp(worldObject.Position, motorPos, deltaTimeLoop);
+					}
+				}
 
-				worldObject.gameObject.SetActive(false);
 			}
 
 			TimeRemaining.Value -= deltaTime;

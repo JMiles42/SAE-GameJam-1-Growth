@@ -186,16 +186,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Curve:
     Positions:
-    - Position: {x: 0, y: 3.3661518, z: -4.755735}
+    - Position: {x: 0, y: 3.3661509, z: -4.7558594}
       Rotation: {x: 0, y: 0, z: 0, w: 1}
       Scale: {x: 1, y: 1, z: 1}
-    - Position: {x: 0, y: 3.784939, z: -11.5080185}
+    - Position: {x: 0, y: 30.24557, z: -47.51526}
       Rotation: {x: -0.09378236, y: 0, z: 0, w: 0.9955927}
       Scale: {x: 1, y: 1, z: 1}
-    - Position: {x: 0, y: 8.829518, z: -10.308867}
+    - Position: {x: 0, y: 4.366126, z: -26.997986}
       Rotation: {x: 0.13746314, y: 0, z: 0, w: 0.99050695}
       Scale: {x: 1, y: 1, z: 1}
-    - Position: {x: 0, y: 4.799211, z: -15.944577}
+    - Position: {x: 0, y: 43.633556, z: -45.72937}
+      Rotation: {x: 0, y: 0, z: 0, w: 1}
+      Scale: {x: 1, y: 1, z: 1}
+    - Position: {x: 0, y: 30.825565, z: -87.45209}
       Rotation: {x: 0, y: 0, z: 0, w: 1}
       Scale: {x: 1, y: 1, z: 1}
     useGlobalSpace: 0

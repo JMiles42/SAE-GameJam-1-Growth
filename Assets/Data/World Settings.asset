@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: World Settings
   m_EditorClassIdentifier: 
   StartRadius: 30
-  boundsRadius: 26
+  boundsRadius: 106.55001
   constraintCircleBuffer: 4
-  gameRadius: 30
+  gameRadius: 110.55001
   slowDownBufferRadius: 10
-  slowDownRadius: 16
+  slowDownRadius: 96.55001
