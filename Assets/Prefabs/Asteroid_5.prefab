@@ -127,3 +127,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotateOnSpawn: 1
+  ScaleIncreaseAmount:
+    UseLocal: 1
+    LocalValue: -0.1
+    Reference: {fileID: 0}
+  DealsDamage:
+    UseLocal: 1
+    LocalValue: 1
+    Reference: {fileID: 0}
+  ScoreValue:
+    UseLocal: 1
+    LocalValue: -10
+    Reference: {fileID: 0}

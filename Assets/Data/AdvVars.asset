@@ -22,7 +22,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea825b41d4107b42a79681dbc543add, type: 3}
   m_Name: ExtraScale
   m_EditorClassIdentifier: 
-  storedValue: 1
+  storedValue: -5.9000015
 --- !u!114 &114765435426539336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34,4 +34,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71c01b1d1593fa4097d57bd8caed10d, type: 3}
   m_Name: ScoreValue
   m_EditorClassIdentifier: 
-  storedValue: 0
+  storedValue: 430
