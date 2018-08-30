@@ -1,7 +1,5 @@
-﻿using DG.Tweening;
-using ForestOfChaosLib;
+﻿using ForestOfChaosLib;
 using ForestOfChaosLib.AdvVar;
-using ForestOfChaosLib.Components;
 using ForestOfChaosLib.Extensions;
 using ForestOfChaosLib.Maths.Lerp;
 using UnityEngine;
@@ -10,22 +8,18 @@ public class PlayerScaleManager: FoCsBehaviour
 {
 	public FloatReference ScaleRef;
 	public WorldSettings  WorldSettings;
+	public FloatVariable  ScaleSpeed = 1.5f;
 
-	private void OnEnable()
+	private void Start()
 	{
-		ScaleRef.Value         =  0;
-		ScaleRef.OnValueChange += ValueChange;
+		ScaleRef.Value           = 0;
+		WorldSettings.GameRadius = WorldSettings.StartRadius;
 	}
 
-	private void OnDisable()
+	private void Update()
 	{
-		ScaleRef.OnValueChange -= ValueChange;
-	}
-
-	private void ValueChange()
-	{
-		var value = ScaleRef.Value.Clamp();
-		transform.localScale     = Vector3.Lerp(transform.localScale, Vector3.one * value, Time.deltaTime);
-		WorldSettings.GameRadius = Lerps.Lerp(35f, 120f, value);
+		var deltaTime = Time.deltaTime;
+		transform.localScale     = Vector3.Lerp(transform.localScale, Vector3.one * ScaleRef.Value.Clamp(0.2f) * 3, deltaTime * ScaleSpeed);
+		WorldSettings.GameRadius = Lerps.Lerp(WorldSettings.StartRadius, 120f, ScaleRef.Value);
 	}
 }

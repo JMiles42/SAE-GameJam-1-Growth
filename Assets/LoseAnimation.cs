@@ -39,6 +39,6 @@ public class LoseAnimation: MonoBehaviour
 
 	public void PlayAgain()
 	{
-		SceneManager.LoadScene("TestScene", LoadSceneMode.Single);
+		SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
 	}
 }

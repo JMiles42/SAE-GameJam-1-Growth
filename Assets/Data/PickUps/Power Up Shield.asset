@@ -17,6 +17,6 @@ MonoBehaviour:
     Reference: {fileID: 0}
   TimeRemaining:
     UseLocal: 1
-    LocalValue: 19.820543
+    LocalValue: 20
     Reference: {fileID: 0}
   Icon: {fileID: 114060165929770158, guid: 15bf43b9c639bf24e88a276c2fb47216, type: 2}

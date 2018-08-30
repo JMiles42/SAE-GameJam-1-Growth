@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Name: PowerUp_Shield
   m_EditorClassIdentifier: 
   currentIndex: 0
-  currentLength: 10
+  currentLength: 5
   expandable: 1
   forceReuse: 0
-  maxCount: 10
+  maxCount: 5
   current: {fileID: 0}
   PoolObject: {fileID: 114864093767722620, guid: 7f2cf6f10a4bcb3449e450ace7ac45e7,
     type: 2}

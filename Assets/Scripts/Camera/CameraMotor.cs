@@ -19,7 +19,7 @@ public class CameraMotor: FoCsBehaviour
 		velocity = Vector3.one;
 	}
 
-	private void LateUpdate()
+	private void FixedUpdate()
 	{
 		lerpDistance = Lerps.Lerp(lerpDistance, ScaleRef.Value.Clamp(), Time.deltaTime);
 		var pos = transform.position;

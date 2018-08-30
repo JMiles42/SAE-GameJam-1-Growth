@@ -12,12 +12,13 @@ public class WorldObject: FoCsRigidbodyBehaviour
 	public        FloatVariable     ScaleIncreaseAmount = 0.1f;
 	public        IntVariable       ScoreValue          = 10;
 	public event Action<Motor>      OnPlayerInteraction;
-	private bool                    interactedWithPlayer = false;
+	public bool                     interactedWithPlayer         = false;
+	public bool                     internalInteractedWithPlayer = false;
 
 	protected virtual void OnEnable()
 	{
 		WorldObjects.Add(this);
-		interactedWithPlayer = false;
+		interactedWithPlayer = internalInteractedWithPlayer = false;
 	}
 
 	protected virtual void OnDisable()
@@ -29,15 +30,14 @@ public class WorldObject: FoCsRigidbodyBehaviour
 	{
 		var motor = collision.gameObject.GetComponent<Motor>();
 
-		if(motor && !interactedWithPlayer)
+		if(!motor)
+			return;
+
+		if(!internalInteractedWithPlayer)
 		{
-			interactedWithPlayer = true;
+			internalInteractedWithPlayer = true;
 			OnPlayerInteraction?.Invoke(motor);
-
-			if(ScoreValue != 0)
-				ScoreManager.AddScore(ScoreValue);
-
-			gameObject.SetActive(false);
 		}
+		gameObject.SetActive(false);
 	}
 }
