@@ -1,50 +1,14 @@
 fileFormatVersion: 2
-guid: f35ec4ad8dceaea43b59a5d838d9c423
+guid: 5311500098448374d8c34c204d8ac290
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Planet_Mesh_1
-    100004: Planet_Mesh_2
-    100006: Planet_Mesh_3
-    100008: Planet_Mesh_4
-    100010: Planet_Mesh_5
-    100012: Planet_Mesh_6
-    100014: Planet_Mesh_7
     400000: //RootNode
-    400002: Planet_Mesh_1
-    400004: Planet_Mesh_2
-    400006: Planet_Mesh_3
-    400008: Planet_Mesh_4
-    400010: Planet_Mesh_5
-    400012: Planet_Mesh_6
-    400014: Planet_Mesh_7
-    2100000: Planet_MAT
+    2100000: Leg_MAT
     2300000: //RootNode
-    2300002: Planet_Mesh_1
-    2300004: Planet_Mesh_2
-    2300006: Planet_Mesh_3
-    2300008: Planet_Mesh_4
-    2300010: Planet_Mesh_5
-    2300012: Planet_Mesh_6
-    2300014: Planet_Mesh_7
     3300000: //RootNode
-    3300002: Planet_Mesh_1
-    3300004: Planet_Mesh_2
-    3300006: Planet_Mesh_3
-    3300008: Planet_Mesh_4
-    3300010: Planet_Mesh_5
-    3300012: Planet_Mesh_6
-    3300014: Planet_Mesh_7
-    4300000: Planet_Mesh
-    4300002: Planet_Mesh_1
-    4300004: Planet_Mesh_2
-    4300006: Planet_Mesh_3
-    4300008: Planet_Mesh_4
-    4300010: Planet_Mesh_5
-    4300012: Planet_Mesh_6
-    4300014: Planet_Mesh_7
-    6400000: //RootNode
+    4300000: Leg_Mesh
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -76,13 +40,13 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.5
     meshCompression: 0
     addColliders: 0
-    importVisibility: 0
+    importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1

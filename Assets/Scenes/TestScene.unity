@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 4210a1ea2ec34e04499ab3c458d85303, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.05839035, g: 0.0839637, b: 0.12845102, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -238,6 +238,7 @@ Transform:
   - {fileID: 1555991536}
   - {fileID: 138979994}
   - {fileID: 503808359}
+  - {fileID: 1097357351}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -623,6 +624,7 @@ GameObject:
   - component: {fileID: 534669906}
   - component: {fileID: 534669907}
   - component: {fileID: 534669908}
+  - component: {fileID: 534669909}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -683,7 +685,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.043581244, y: -0, z: -0, w: 0.9990499}
   m_LocalPosition: {x: 0, y: 3, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -733,10 +735,30 @@ PositionConstraint:
   m_Enabled: 1
   m_Weight: 1
   m_TranslationAtRest: {x: 0, y: 3, z: -7}
-  m_TranslationOffset: {x: 0, y: 3, z: -7}
+  m_TranslationOffset: {x: 0, y: 2.1, z: -4.8999996}
   m_AffectTranslationX: 1
   m_AffectTranslationY: 1
   m_AffectTranslationZ: 1
+  m_IsContraintActive: 1
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 1097357351}
+    weight: 0.3
+  - sourceTransform: {fileID: 110970527}
+    weight: 0.7
+--- !u!1183024399 &534669909
+LookAtConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_Weight: 0.216
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_RotationOffset: {x: 0, y: 0, z: 0}
+  m_Roll: 0
+  m_WorldUpObject: {fileID: 0}
+  m_UseUpObject: 0
   m_IsContraintActive: 1
   m_IsLocked: 1
   m_Sources:
@@ -844,6 +866,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textEvent: {fileID: 835724808}
   Score: {fileID: 114765435426539336, guid: 15bf43b9c639bf24e88a276c2fb47216, type: 2}
+--- !u!1 &1097357350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1097357351}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1097357351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1097357350}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3, z: -7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 110970527}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1190895309
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,11 +999,12 @@ MonoBehaviour:
     Min: 0.05
     Max: 0.1
   SafeSpawnables:
-  - {fileID: 11400000, guid: 68689af1e3d0d0d4d8f7cf23cfafcb55, type: 2}
-  - {fileID: 11400000, guid: 30bac440cd1fdaf4281fa61907e5f7a8, type: 2}
-  - {fileID: 11400000, guid: 642a1863d26493d4b9d2d0578b931883, type: 2}
-  - {fileID: 11400000, guid: 06595937ec0e0504db261dec85bb7944, type: 2}
-  - {fileID: 11400000, guid: 5e43aeaebf928944f8a8a1af9cf209ae, type: 2}
+  - {fileID: 11400000, guid: f0aaac804b37cd54ba46ac7e7919711b, type: 2}
+  - {fileID: 11400000, guid: 1b6d6ffd5773e2b4da77e32a84bfcbcd, type: 2}
+  - {fileID: 11400000, guid: 952155dd2c773d74396cac28950144b2, type: 2}
+  - {fileID: 11400000, guid: bdb90190c9160f14b96434b8ea76ae7f, type: 2}
+  - {fileID: 11400000, guid: 167473cb8d6b03d4b843f7fc93e35fb2, type: 2}
+  - {fileID: 11400000, guid: 1b16944858c4cf84cb11aec86febb44b, type: 2}
   PowerUpTimer:
     Min: 2
     Max: 5
@@ -965,9 +1016,11 @@ MonoBehaviour:
     Min: 0.4
     Max: 2
   DangerousSpawnables:
-  - {fileID: 11400000, guid: 1b16944858c4cf84cb11aec86febb44b, type: 2}
-  - {fileID: 11400000, guid: 167473cb8d6b03d4b843f7fc93e35fb2, type: 2}
-  - {fileID: 11400000, guid: bdb90190c9160f14b96434b8ea76ae7f, type: 2}
+  - {fileID: 11400000, guid: 68689af1e3d0d0d4d8f7cf23cfafcb55, type: 2}
+  - {fileID: 11400000, guid: 30bac440cd1fdaf4281fa61907e5f7a8, type: 2}
+  - {fileID: 11400000, guid: 642a1863d26493d4b9d2d0578b931883, type: 2}
+  - {fileID: 11400000, guid: 06595937ec0e0504db261dec85bb7944, type: 2}
+  - {fileID: 11400000, guid: 5e43aeaebf928944f8a8a1af9cf209ae, type: 2}
   WorldSettings: {fileID: 11400000, guid: b1707e934d8d0d54ab5c77637021894d, type: 2}
 --- !u!1 &1539130503
 GameObject:
@@ -1008,6 +1061,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1b16944858c4cf84cb11aec86febb44b, type: 2}
   - {fileID: 11400000, guid: 167473cb8d6b03d4b843f7fc93e35fb2, type: 2}
   - {fileID: 11400000, guid: bdb90190c9160f14b96434b8ea76ae7f, type: 2}
+  - {fileID: 11400000, guid: f0aaac804b37cd54ba46ac7e7919711b, type: 2}
+  - {fileID: 11400000, guid: 1b6d6ffd5773e2b4da77e32a84bfcbcd, type: 2}
+  - {fileID: 11400000, guid: 952155dd2c773d74396cac28950144b2, type: 2}
 --- !u!4 &1539130505
 Transform:
   m_ObjectHideFlags: 0
