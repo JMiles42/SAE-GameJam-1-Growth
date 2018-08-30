@@ -1,19 +1,25 @@
 ﻿using System.Collections;
 using ForestOfChaosLib.AdvVar;
+using ForestOfChaosLib.AdvVar.RuntimeRef;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = ButDinoConstants.NAME_ + "PowerUp/Magnet")]
 public class PowerUpMagnet: PowerUpBase
 {
-	public  FloatVariable MagnetRadius   = 20;
-	public  FloatVariable MagnetStrength = 2;
-	private Coroutine     Coroutine;
+	private Coroutine            Coroutine;
+	public  GameObjectRunTimeRef Icon;
+	private Image                magnetIcon;
+	public  FloatVariable        MagnetRadius   = 20;
+	public  FloatVariable        MagnetStrength = 2;
 
 	/// <inheritdoc />
 	public override void Enable(Motor motor)
 	{
 		StopCoroutine(motor);
-		Coroutine = motor.StartCoroutine(DoLoop(motor));
+		Coroutine          = motor.StartCoroutine(DoLoop(motor));
+		magnetIcon         = Icon.Reference.GetComponent<Image>();
+		magnetIcon.enabled = true;
 	}
 
 	/// <inheritdoc />
@@ -21,6 +27,7 @@ public class PowerUpMagnet: PowerUpBase
 	{
 		StopCoroutine(motor);
 		motor.RemovePowerUp(this, false);
+		magnetIcon.enabled = false;
 	}
 
 	private void StopCoroutine(Motor motor)

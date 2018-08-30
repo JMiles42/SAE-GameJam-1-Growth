@@ -1,34 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
-public class Shield : MonoBehaviour {
+public class Shield: MonoBehaviour
+{
+	public ActivePowerUp activeicon;
+	public GameObject    shieldIcon;
 
-    public GameObject shieldIcon;
-    public ActivePowerUp activeicon;
+	// Use this for initialization
+	private void Start() { }
 
-    // Use this for initialization
-    void Start()
-    {
+	// Update is called once per frame
+	private void Update() { }
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name == "Player")
-        {
-            activeicon.shield.SetActive(true);
-            activeicon.shieldtimer = 10;
-            
-            Destroy(this.gameObject);
-        }
-    }
+	private void OnCollisionEnter(Collision collision)
+	{
+		if(collision.gameObject.name == "Player")
+		{
+			activeicon.shield.SetActive(true);
+			activeicon.shieldtimer = 10;
+			Destroy(gameObject);
+		}
+	}
 }
-

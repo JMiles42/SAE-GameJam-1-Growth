@@ -1,42 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Smaller : MonoBehaviour {
+public class Smaller: MonoBehaviour
+{
+	public Dinosaur score;
 
-    public Dinosaur score;
-    
-    // Use this for initialization
-    void Start () {
-        
-    }
-	
+	// Use this for initialization
+	private void Start() { }
+
 	// Update is called once per frame
-	void Update () {
-		
+	private void Update() { }
+
+	private void OnCollisionEnter(Collision small)
+	{
+		if(small.gameObject.name == "Player")
+		{
+			if(score.shieldOn == false)
+			{
+				score.score -= 500;
+				Destroy(gameObject);
+			}
+			else
+				Destroy(gameObject);
+		}
 	}
-
-    private void OnCollisionEnter(Collision small)
-    {
-        
-
-        if (small.gameObject.name == "Player")
-        {
-            
-            if (score.shieldOn == false)
-            {
-                score.score -= 500;
-                
-                Destroy(this.gameObject);
-            }
-            else
-            {
-                
-                Destroy(this.gameObject);
-            }
-            
-        }
-
-
-    }
 }

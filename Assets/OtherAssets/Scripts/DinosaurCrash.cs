@@ -1,23 +1,29 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class DinosaurCrash : MonoBehaviour {
-
-    public GameObject earth;
-    public float speed;
-    float delta;
+public class DinosaurCrash: MonoBehaviour
+{
+	private float      delta;
+	public  GameObject earth;
+	public  float      speed;
 
 	// Use this for initialization
-	void Start () {
-        speed = 12f;
+	private void Start()
+	{
+		speed = 12f;
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
-        delta = speed * Time.deltaTime;
+	private void Update()
+	{
+		delta              = speed * Time.deltaTime;
+		transform.position = Vector3.MoveTowards(transform.position, earth.transform.position, delta);
+	}
 
-        this.transform.position = Vector3.MoveTowards(this.transform.position, earth.transform.position, delta);
+	private void OnCollisionEnter(Collision collision)
+	{
+		if(collision.gameObject.name == "omnni")
+			speed = -1f;
 
+		Destroy(gameObject);
 	}
 }

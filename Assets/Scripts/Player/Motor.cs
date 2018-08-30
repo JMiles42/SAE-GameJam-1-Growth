@@ -10,6 +10,7 @@ using UnityEngine;
 public class Motor: FoCsRigidbodyBehaviour
 {
 	[GetSetter("Brain")] [SerializeField] private MotorBrain        brain;
+	[SerializeField]                      private OnCollisionEvents onCollisionEvents;
 	public                                        List<PowerUpBase> PowerUps = new List<PowerUpBase>();
 	public                                        FloatVariable     ScaleRef;
 
@@ -27,8 +28,6 @@ public class Motor: FoCsRigidbodyBehaviour
 			brain = value;
 		}
 	}
-
-	[SerializeField] private OnCollisionEvents onCollisionEvents;
 
 	public OnCollisionEvents OnCollisionEvents
 	{
@@ -66,6 +65,7 @@ public class Motor: FoCsRigidbodyBehaviour
 			if(damaged)
 			{
 				ScaleRef.Value -= 0.5f;
+
 				if(worldObject.ScoreValue > 0)
 					ScoreManager.AddScore(worldObject.ScoreValue);
 

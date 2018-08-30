@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using ForestOfChaosLib.Extensions;
+﻿using ForestOfChaosLib.Extensions;
 using UnityEngine;
 
 public class WorldObjectManager: MonoBehaviour

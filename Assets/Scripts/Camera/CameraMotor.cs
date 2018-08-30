@@ -6,17 +6,16 @@ using UnityEngine.Animations;
 
 public class CameraMotor: FoCsBehaviour
 {
-	public Vector3            Offset = new Vector3(0, 3, -7);
-	public Transform          Target;
-	public FloatVariable      ScaleRef;
-	public PositionConstraint PositionConstraint;
+	public  Vector3            Offset = new Vector3(0, 3, -7);
+	public  PositionConstraint PositionConstraint;
+	public  FloatVariable      ScaleRef;
+	public  Transform          Target;
+	private Vector3            velocity;
 
 	private void Start()
 	{
 		Offset = transform.position - Target.position;
 	}
-
-	private Vector3 velocity;
 
 	private void LateUpdate()
 	{

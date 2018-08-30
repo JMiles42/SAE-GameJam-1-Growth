@@ -8,25 +8,24 @@ using UnityEngine;
 public class PlayerBrain: MotorBrain
 {
 	private const                             float         SMALL_FLOAT = 0.01f;
-	public                                    AdvInputAxis  Vertical;
-	public                                    AdvInputAxis  Horizontal;
+	private                                   Coroutine     Coroutine;
 	public                                    FloatVariable CurrentMaxSpeed = 10;
 	public                                    FloatVariable EdgeMaxSpeed    = 10;
-	public                                    FloatVariable MaxSpeed        = 10;
-	public                                    WorldSettings WorldSettings;
+	public                                    AdvInputAxis  Horizontal;
+	public                                    FloatVariable MaxSpeed = 10;
+	[DisableEditing] [SerializeField] private float         pitch;
 	public                                    FloatVariable PitchMax = 0;
-	public                                    FloatVariable RollMax  = 0;
-	public                                    FloatVariable YawMax   = 0;
-
-	private                                   Coroutine     Coroutine;
+	[DisableEditing] [SerializeField] private float         roll;
+	public                                    FloatVariable RollMax = 0;
 	[DisableEditing] [SerializeField] private Vector3       smoothMoveVec;
 	[DisableEditing] [SerializeField] private float         smoothPitchV;
 	[DisableEditing] [SerializeField] private float         smoothRollV;
 	[DisableEditing] [SerializeField] private float         smoothYawV;
 	[DisableEditing] [SerializeField] private Vector3       velocity;
-	[DisableEditing] [SerializeField] private float         pitch;
-	[DisableEditing] [SerializeField] private float         roll;
+	public                                    AdvInputAxis  Vertical;
+	public                                    WorldSettings WorldSettings;
 	[DisableEditing] [SerializeField] private float         yaw;
+	public                                    FloatVariable YawMax = 0;
 
 	private void OnEnable()
 	{

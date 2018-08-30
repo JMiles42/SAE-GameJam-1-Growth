@@ -1,41 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ActivePowerUp : MonoBehaviour {
-    public GameObject magnet;
-    public GameObject shield;
-    public GameObject booster;
+public class ActivePowerUp: MonoBehaviour
+{
+	public GameObject booster;
+	public float      boostertimer;
+	public GameObject magnet;
+	public float      magnettimer;
+	public GameObject shield;
+	public float      shieldtimer;
 
-    public float magnettimer;
-    public float shieldtimer;
-    public float boostertimer;
 	// Use this for initialization
-	void Start () {
-        
-	}
-	
+	private void Start() { }
+
 	// Update is called once per frame
-	void Update ()
-    {
-        magnettimer -= Time.deltaTime;
-        shieldtimer -= Time.deltaTime;
-        boostertimer -= Time.deltaTime;
+	private void Update()
+	{
+		magnettimer  -= Time.deltaTime;
+		shieldtimer  -= Time.deltaTime;
+		boostertimer -= Time.deltaTime;
 
-        if (magnettimer < 0)
-        {
-            magnet.SetActive(false);
-        }
+		if(magnettimer < 0)
+			magnet.SetActive(false);
 
-        if (shieldtimer < 0)
-        {
-            shield.SetActive(false);
-        }
+		if(shieldtimer < 0)
+			shield.SetActive(false);
 
-        if (boostertimer < 0)
-        {
-            booster.SetActive(false);
-        }
-
-    }
+		if(boostertimer < 0)
+			booster.SetActive(false);
+	}
 }

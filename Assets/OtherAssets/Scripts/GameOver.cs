@@ -1,42 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-public class GameOver : MonoBehaviour {
+public class GameOver: MonoBehaviour
+{
+	public GameObject reset;
 
-    public GameObject reset;
+	// Use this for initialization
+	private void Start()
+	{
+		reset.SetActive(false);
+	}
 
+	// Update is called once per frame
+	private void Update() { }
 
-    // Use this for initialization
-    void Start()
-    {
-        reset.SetActive(false);
-    }
+	public void Retry()
+	{
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		Time.timeScale = 1;
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
+	//public void Resume()
+	//{
+	//    Time.timeScale = 1;
+	//    Reset.SetActive(false);
+	//}
 
-    }
-
-    public void Retry()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1;
-
-    }
-
-    //public void Resume()
-    //{
-    //    Time.timeScale = 1;
-    //    Reset.SetActive(false);
-    //}
-
-    //public void Exit()
-    //{
-    //    Application.Quit();
-    //}
-
+	//public void Exit()
+	//{
+	//    Application.Quit();
+	//}
 }

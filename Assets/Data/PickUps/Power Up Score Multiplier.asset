@@ -11,12 +11,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7efba2463adf75c4bbdb48e1273db7b4, type: 3}
   m_Name: Power Up Score Multiplier
   m_EditorClassIdentifier: 
+  TimeMax:
+    UseLocal: 1
+    LocalValue: 20
+    Reference: {fileID: 0}
+  TimeRemaining:
+    UseLocal: 1
+    LocalValue: -0.011912195
+    Reference: {fileID: 0}
   Multiplier:
     UseLocal: 1
     LocalValue: 2
     Reference: {fileID: 0}
-  TimeActive:
-    UseLocal: 1
-    LocalValue: 20
-    Reference: {fileID: 0}
-  time: 20
+  Icon: {fileID: 114772008525419002, guid: 15bf43b9c639bf24e88a276c2fb47216, type: 2}

@@ -8,10 +8,11 @@ using UnityEngine;
 
 public class PlayerScaleManager: FoCsBehaviour
 {
-	public                   FloatReference    ScaleRef;
-	public                   WorldSettings     WorldSettings;
-	public                   FloatVariable     ScaleSpeed = 1.2f;
 	[SerializeField] private OnCollisionEvents collisionEvents;
+	public                   FloatReference    ScaleRef;
+	public                   FloatVariable     ScaleSpeed = 1.2f;
+	private                  Tweener           tween;
+	public                   WorldSettings     WorldSettings;
 
 	public OnCollisionEvents OnCollisionEvents
 	{
@@ -29,8 +30,6 @@ public class PlayerScaleManager: FoCsBehaviour
 	{
 		ScaleRef.OnValueChange -= ValueChange;
 	}
-
-	private Tweener tween;
 
 	private void ValueChange()
 	{

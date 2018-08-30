@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cddfa40b72a8c8479454f64c9f508e6, type: 3}
   m_Name: Steak_Pool
   m_EditorClassIdentifier: 
-  currentIndex: 0
-  currentLength: 0
+  currentIndex: 12
+  currentLength: 46
   expandable: 1
   forceReuse: 0
   maxCount: 10

@@ -1,12 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
-public class playercontroller : MonoBehaviour
+public class playercontroller: MonoBehaviour
 {
-    /*public GameOver reset;
+	/*public GameOver reset;
     public Dinosaur player;
 	// Use this for initialization
 	void Start ()

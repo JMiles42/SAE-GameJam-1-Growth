@@ -129,7 +129,7 @@ MonoBehaviour:
   RotateOnSpawn: 0
   ScaleIncreaseAmount:
     UseLocal: 1
-    LocalValue: 0.3
+    LocalValue: 0.7
     Reference: {fileID: 0}
   DealsDamage:
     UseLocal: 1

@@ -20,7 +20,7 @@ public class InputAxisInvertedButton: MonoBehaviour
 
 	private void Start()
 	{
-		Toggle.Text = Axis.Value.Axis;
+		Toggle.Text    = Axis.Value.Axis;
 		Toggle.Toggled = Axis.ValueInverted;
 	}
 
