@@ -17,8 +17,9 @@ MonoBehaviour:
     Reference: {fileID: 0}
   TimeRemaining:
     UseLocal: 1
-    LocalValue: 18.828983
+    LocalValue: 20
     Reference: {fileID: 0}
+  Icon: {fileID: 114247129039179340, guid: 15bf43b9c639bf24e88a276c2fb47216, type: 2}
   MagnetRadius:
     UseLocal: 1
     LocalValue: 30
@@ -27,4 +28,3 @@ MonoBehaviour:
     UseLocal: 1
     LocalValue: 2
     Reference: {fileID: 0}
-  Icon: {fileID: 114247129039179340, guid: 15bf43b9c639bf24e88a276c2fb47216, type: 2}
