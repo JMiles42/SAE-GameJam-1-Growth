@@ -7,13 +7,13 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    guid: 772335571573e0e49a331cd4f024f659
   - enabled: 1
     path: Assets/Scenes/Credits.unity
-    guid: 7e0e12565118c7a46b01c130d480f9e4
+    guid: 8410a23c29f33a74ab099f9110017956
   - enabled: 1
     path: Assets/Scenes/LoseScene.unity
-    guid: e9841ee293415a14fb9c3f8a0b576c3c
+    guid: 27f3dbb751a974b4a80775de8f11da37
   - enabled: 1
     path: Assets/Scenes/New Scene.unity
     guid: c410f170e3fddd64b93b83c16f0b291d
@@ -22,5 +22,5 @@ EditorBuildSettings:
     guid: 0aa520876b11dae48a01330498a0d2ce
   - enabled: 1
     path: Assets/Scenes/WinningScene.unity
-    guid: 6b6b3b06ce7af8942a74a84db5e06970
+    guid: 874a50d22320f2b4da3d741ec38c07a2
   m_configObjects: {}

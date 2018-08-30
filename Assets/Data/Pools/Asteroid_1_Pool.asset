@@ -15,7 +15,7 @@ MonoBehaviour:
   currentLength: 20
   expandable: 1
   forceReuse: 0
-  maxCount: 40
+  maxCount: 20
   current: {fileID: 0}
   PoolObject: {fileID: 114579622850360834, guid: 6e9ee68ae179f11419007aba1a4aed34,
     type: 2}

@@ -68,6 +68,7 @@ public class WorldSettings: ScriptableObject
 	}
 }
 
+#if UNITY_EDITOR
 internal static class WorldSettingsDraw
 {
 	[DrawGizmo(GizmoType.Active | GizmoType.Selected | GizmoType.NonSelected, typeof(Motor))]
@@ -100,3 +101,4 @@ internal static class WorldSettingsDraw
 		Gizmos.color = colourCache;
 	}
 }
+#endif
