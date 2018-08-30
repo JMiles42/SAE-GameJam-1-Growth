@@ -28,8 +28,9 @@ public class PowerUpMagnet: PowerUpBase
 	{
 		StopCoroutine(motor);
 		motor.RemovePowerUp(this, false);
+
 		if(magnetIcon)
-		magnetIcon.enabled = false;
+			magnetIcon.enabled = false;
 	}
 
 	private void StopCoroutine(Motor motor)
@@ -46,15 +47,21 @@ public class PowerUpMagnet: PowerUpBase
 		{
 			var ray           = new Ray(motor.Position, motor.Forward);
 			var hits          = Physics.SphereCastAll(ray, MagnetRadius);
-			var deltaTime  = Time.deltaTime;
-			var deltaTimeLoop = deltaTime * (MagnetStrength);
+			var deltaTime     = Time.deltaTime;
+			var deltaTimeLoop = deltaTime * MagnetStrength;
+			var motorPos      = motor.Position;
 
 			foreach(var hit in hits)
 			{
 				var worldObject = hit.transform.GetComponent<WorldObject>();
 
 				if(worldObject && !worldObject.DealsDamage)
-					worldObject.Position = Vector3.Lerp(worldObject.Position, motor.Position, deltaTimeLoop);
+					worldObject.Position = Vector3.Lerp(worldObject.Position, motorPos, deltaTimeLoop);
+
+				if(worldObject.Position.Distance(motor.Position) <= 5)
+					motor.UsePickup(worldObject);
+
+				worldObject.gameObject.SetActive(false);
 			}
 
 			TimeRemaining.Value -= deltaTime;

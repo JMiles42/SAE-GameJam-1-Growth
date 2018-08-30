@@ -24,12 +24,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedValue:
     Axis: Mouse Y
-    KeyPos: 3
     deadZone: 0
-    value: 0
+    KeyPos: 3
     OnlyButtonEvents: 0
-    ValueInverted: 0
     UseSmoothInput: 1
+    value: 0
+    ValueInverted: 0
+--- !u!114 &114149902452612180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ac529818ba42479ec636c20fca80f, type: 3}
+  m_Name: Horizontal2
+  m_EditorClassIdentifier: 
+  storedValue:
+    Axis: Horizontal2
+    deadZone: 0
+    KeyPos: 0
+    OnlyButtonEvents: 0
+    UseSmoothInput: 0
+    value: 0
+    ValueInverted: 0
 --- !u!114 &114164680662819168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43,12 +62,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedValue:
     Axis: Fire2
-    KeyPos: 0
     deadZone: 0
-    value: 0
+    KeyPos: 0
     OnlyButtonEvents: 0
-    ValueInverted: 0
     UseSmoothInput: 1
+    value: 0
+    ValueInverted: 0
 --- !u!114 &114407692070698646
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,12 +81,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedValue:
     Axis: Horizontal
-    KeyPos: 3
     deadZone: 0
-    value: 0
+    KeyPos: 3
     OnlyButtonEvents: 0
-    ValueInverted: 0
     UseSmoothInput: 1
+    value: 0
+    ValueInverted: 0
 --- !u!114 &114452825276951070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,12 +100,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedValue:
     Axis: Submit
-    KeyPos: 0
     deadZone: 0
-    value: 0
+    KeyPos: 0
     OnlyButtonEvents: 0
-    ValueInverted: 0
     UseSmoothInput: 1
+    value: 0
+    ValueInverted: 0
 --- !u!114 &114551697136539514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,12 +119,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedValue:
     Axis: Vertical
-    KeyPos: 3
     deadZone: 0
-    value: 0
+    KeyPos: 3
     OnlyButtonEvents: 0
-    ValueInverted: 0
     UseSmoothInput: 1
+    value: 0
+    ValueInverted: 0
 --- !u!114 &114607589741294856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,12 +138,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedValue:
     Axis: Mouse ScrollWheel
-    KeyPos: 0
     deadZone: 0
-    value: 0
+    KeyPos: 0
     OnlyButtonEvents: 0
-    ValueInverted: 0
     UseSmoothInput: 1
+    value: 0
+    ValueInverted: 0
 --- !u!114 &114694237514445064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,12 +157,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedValue:
     Axis: Cancel
-    KeyPos: 0
     deadZone: 0
-    value: 0
+    KeyPos: 0
     OnlyButtonEvents: 0
-    ValueInverted: 0
     UseSmoothInput: 1
+    value: 0
+    ValueInverted: 0
+--- !u!114 &114696748062806764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790ac529818ba42479ec636c20fca80f, type: 3}
+  m_Name: Vertical2
+  m_EditorClassIdentifier: 
+  storedValue:
+    Axis: Vertical2
+    deadZone: 0
+    KeyPos: 0
+    OnlyButtonEvents: 0
+    UseSmoothInput: 0
+    value: 0
+    ValueInverted: 0
 --- !u!114 &114812915757748844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,12 +195,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedValue:
     Axis: Fire3
-    KeyPos: 0
     deadZone: 0
-    value: 0
+    KeyPos: 0
     OnlyButtonEvents: 0
-    ValueInverted: 0
     UseSmoothInput: 1
+    value: 0
+    ValueInverted: 0
 --- !u!114 &114838972986008470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,12 +214,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedValue:
     Axis: Fire1
-    KeyPos: 0
     deadZone: 0
-    value: 0
+    KeyPos: 0
     OnlyButtonEvents: 0
-    ValueInverted: 0
     UseSmoothInput: 1
+    value: 0
+    ValueInverted: 0
 --- !u!114 &114893470561028192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,12 +233,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedValue:
     Axis: Mouse X
-    KeyPos: 3
     deadZone: 0
-    value: 0
+    KeyPos: 3
     OnlyButtonEvents: 0
-    ValueInverted: 0
     UseSmoothInput: 1
+    value: 0
+    ValueInverted: 0
 --- !u!114 &114976144215156374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,9 +252,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storedValue:
     Axis: Jump
-    KeyPos: 0
     deadZone: 0
-    value: 0
+    KeyPos: 0
     OnlyButtonEvents: 0
-    ValueInverted: 0
     UseSmoothInput: 1
+    value: 0
+    ValueInverted: 0

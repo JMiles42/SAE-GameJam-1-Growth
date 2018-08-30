@@ -186,16 +186,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Curve:
     Positions:
-    - Position: {x: 0, y: 3.3661518, z: -8.18869}
+    - Position: {x: 0, y: 3.3661518, z: -4.755735}
       Rotation: {x: 0, y: 0, z: 0, w: 1}
       Scale: {x: 1, y: 1, z: 1}
-    - Position: {x: 0, y: 3.784939, z: -15.740432}
-      Rotation: {x: 0, y: 0, z: 0, w: 1}
+    - Position: {x: 0, y: 3.784939, z: -11.5080185}
+      Rotation: {x: -0.09378236, y: 0, z: 0, w: 0.9955927}
       Scale: {x: 1, y: 1, z: 1}
-    - Position: {x: 0, y: 9.487894, z: -16.657484}
-      Rotation: {x: 0, y: 0, z: 0, w: 1}
+    - Position: {x: 0, y: 8.829518, z: -10.308867}
+      Rotation: {x: 0.13746314, y: 0, z: 0, w: 0.99050695}
       Scale: {x: 1, y: 1, z: 1}
-    - Position: {x: 0, y: 8.373251, z: -31.228296}
+    - Position: {x: 0, y: 4.799211, z: -15.944577}
       Rotation: {x: 0, y: 0, z: 0, w: 1}
       Scale: {x: 1, y: 1, z: 1}
     useGlobalSpace: 0
@@ -837,7 +837,7 @@ MonoBehaviour:
   ScaleRef: {fileID: 114138254098603698, guid: 15bf43b9c639bf24e88a276c2fb47216, type: 2}
   Damping:
     UseLocal: 1
-    LocalValue: 0.2
+    LocalValue: 0.35
     Reference: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   Curve: {fileID: 1969696}
@@ -1827,14 +1827,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Axes:
   - {fileID: 114407692070698646, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
+  - {fileID: 114149902452612180, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
   - {fileID: 114551697136539514, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
-  - {fileID: 114893470561028192, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
-  - {fileID: 114143436574752742, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
-  - {fileID: 114607589741294856, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
+  - {fileID: 114696748062806764, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
   - {fileID: 114838972986008470, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
   - {fileID: 114164680662819168, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
   - {fileID: 114812915757748844, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
   - {fileID: 114976144215156374, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
+  - {fileID: 114607589741294856, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
+  - {fileID: 114893470561028192, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
+  - {fileID: 114143436574752742, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
   - {fileID: 114452825276951070, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
   - {fileID: 114694237514445064, guid: ba699c91ce950fd42940291d4b6530aa, type: 2}
   MousePosition:
@@ -2203,6 +2205,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScaleRef: {fileID: 114138254098603698, guid: 15bf43b9c639bf24e88a276c2fb47216, type: 2}
   WorldSettings: {fileID: 11400000, guid: b1707e934d8d0d54ab5c77637021894d, type: 2}
+  ScaleSpeed:
+    UseLocal: 1
+    LocalValue: 1.5
+    Reference: {fileID: 0}
 --- !u!114 &1453943111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2399,23 +2405,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f0aaac804b37cd54ba46ac7e7919711b, type: 2}
   - {fileID: 11400000, guid: 1b6d6ffd5773e2b4da77e32a84bfcbcd, type: 2}
   - {fileID: 11400000, guid: 952155dd2c773d74396cac28950144b2, type: 2}
-  - {fileID: 11400000, guid: 30bac440cd1fdaf4281fa61907e5f7a8, type: 2}
-  - {fileID: 11400000, guid: 30bac440cd1fdaf4281fa61907e5f7a8, type: 2}
-  - {fileID: 11400000, guid: 30bac440cd1fdaf4281fa61907e5f7a8, type: 2}
-  - {fileID: 11400000, guid: 30bac440cd1fdaf4281fa61907e5f7a8, type: 2}
-  - {fileID: 11400000, guid: 30bac440cd1fdaf4281fa61907e5f7a8, type: 2}
-  - {fileID: 11400000, guid: 30bac440cd1fdaf4281fa61907e5f7a8, type: 2}
-  - {fileID: 11400000, guid: 30bac440cd1fdaf4281fa61907e5f7a8, type: 2}
-  - {fileID: 11400000, guid: 5e43aeaebf928944f8a8a1af9cf209ae, type: 2}
-  - {fileID: 11400000, guid: 5e43aeaebf928944f8a8a1af9cf209ae, type: 2}
-  - {fileID: 11400000, guid: 5e43aeaebf928944f8a8a1af9cf209ae, type: 2}
-  - {fileID: 11400000, guid: 642a1863d26493d4b9d2d0578b931883, type: 2}
-  - {fileID: 11400000, guid: 642a1863d26493d4b9d2d0578b931883, type: 2}
-  - {fileID: 11400000, guid: 642a1863d26493d4b9d2d0578b931883, type: 2}
-  - {fileID: 11400000, guid: 68689af1e3d0d0d4d8f7cf23cfafcb55, type: 2}
-  - {fileID: 11400000, guid: 68689af1e3d0d0d4d8f7cf23cfafcb55, type: 2}
-  - {fileID: 11400000, guid: 68689af1e3d0d0d4d8f7cf23cfafcb55, type: 2}
-  - {fileID: 11400000, guid: 68689af1e3d0d0d4d8f7cf23cfafcb55, type: 2}
 --- !u!4 &1539130505
 Transform:
   m_ObjectHideFlags: 0

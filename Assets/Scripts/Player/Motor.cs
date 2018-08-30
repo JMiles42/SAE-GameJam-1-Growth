@@ -59,31 +59,10 @@ public class Motor: FoCsRigidbodyBehaviour
 	{
 		var worldObject = obj.gameObject.GetComponent<WorldObject>();
 
-		if(worldObject.interactedWithPlayer)
+		if(!worldObject || worldObject.interactedWithPlayer)
 			return;
 
-		worldObject.interactedWithPlayer = true;
-
-		if(worldObject && worldObject.DealsDamage)
-		{
-			var damaged = false;
-
-			if(OnDamageInterrupt != null)
-				damaged = OnDamageInterrupt(worldObject);
-			else
-				damaged = true;
-
-			if(damaged)
-			{
-				ScaleRef.Value = (ScaleRef.Value + worldObject.ScaleIncreaseAmount).Clamp();
-				ScoreManager.AddScore(worldObject.ScoreValue);
-			}
-		}
-		else
-		{
-			ScaleRef.Value = (ScaleRef.Value + worldObject.ScaleIncreaseAmount).Clamp();
-			ScoreManager.AddScore(worldObject.ScoreValue);
-		}
+		UsePickup(worldObject);
 	}
 
 	public void AddPowerUp(PowerUpBase powerUp)
@@ -188,4 +167,33 @@ public class Motor: FoCsRigidbodyBehaviour
 	}
 #endregion
 #endregion
+
+	public void UsePickup(WorldObject worldObject)
+	{
+		if(worldObject.interactedWithPlayer)
+			return;
+
+		worldObject.interactedWithPlayer = true;
+
+		if(worldObject && worldObject.DealsDamage)
+		{
+			var damaged = false;
+
+			if(OnDamageInterrupt != null)
+				damaged = OnDamageInterrupt(worldObject);
+			else
+				damaged = true;
+
+			if(damaged)
+			{
+				ScaleRef.Value = (ScaleRef.Value + worldObject.ScaleIncreaseAmount).Clamp(0.2f);
+				ScoreManager.AddScore(worldObject.ScoreValue);
+			}
+		}
+		else
+		{
+			ScaleRef.Value = (ScaleRef.Value + worldObject.ScaleIncreaseAmount).Clamp(0.2f);
+			ScoreManager.AddScore(worldObject.ScoreValue);
+		}
+	}
 }

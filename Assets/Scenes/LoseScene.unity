@@ -485,15 +485,15 @@ Prefab:
       objectReference: {fileID: 9100000, guid: d8a1ac0ace979dd4ea88961fddf27e18, type: 2}
     - target: {fileID: 400002, guid: 25e2d9bea4bc433468cdb2d1bd8db714, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.582981
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 25e2d9bea4bc433468cdb2d1bd8db714, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.582981
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 25e2d9bea4bc433468cdb2d1bd8db714, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.582981
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25e2d9bea4bc433468cdb2d1bd8db714, type: 3}
@@ -621,9 +621,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1936d59fad484454ba13706f06c2fce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaitTime: 0.23
-  timer: 0
   playAgain: {fileID: 21484217}
+  timer: 0
+  WaitTime: 0.23
 --- !u!65 &955177677
 BoxCollider:
   m_ObjectHideFlags: 0
